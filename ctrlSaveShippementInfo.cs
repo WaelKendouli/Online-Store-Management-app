@@ -69,7 +69,13 @@ namespace OnlineStoreProject
 
         private void txt_shipping_cost_Validating(object sender, CancelEventArgs e)
         {
-
+            if (clsSunnyUIErrorProviderVerfication._ValidateByErrorProvider(epCheck, txt_shipping_cost,
+   e, string.IsNullOrEmpty, "this field shouldn't be empty"))
+            {
+                return;
+            }
+            clsSunnyUIErrorProviderVerfication._ValidateByErrorProvider(epCheck, txt_shipping_cost, e, clsInputValidator.IsShippingCostNotCorrect,
+                "Shipping Cost must be a positive number with up to 2 decimal places (e.g., 12.99, 5.00, 9.50)");
         }
     }
 }

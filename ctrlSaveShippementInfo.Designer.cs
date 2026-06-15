@@ -78,6 +78,7 @@
             this.txt_Shipping_Carrier.TabIndex = 1;
             this.txt_Shipping_Carrier.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_Shipping_Carrier.Watermark = "";
+            this.txt_Shipping_Carrier.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Shipping_Carrier_Validating);
             // 
             // txt_carrier_service_level
             // 
@@ -93,6 +94,7 @@
             this.txt_carrier_service_level.TabIndex = 3;
             this.txt_carrier_service_level.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_carrier_service_level.Watermark = "";
+            this.txt_carrier_service_level.Validating += new System.ComponentModel.CancelEventHandler(this.txt_carrier_service_level_Validating);
             // 
             // uiLabel2
             // 
@@ -138,6 +140,7 @@
             this.txt_tracking_url.TabIndex = 7;
             this.txt_tracking_url.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_tracking_url.Watermark = "";
+            this.txt_tracking_url.Validating += new System.ComponentModel.CancelEventHandler(this.txt_tracking_url_Validating);
             // 
             // uiLabel5
             // 
@@ -207,6 +210,7 @@
             this.txt_shipping_updates.TabIndex = 15;
             this.txt_shipping_updates.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_shipping_updates.Watermark = "";
+            this.txt_shipping_updates.Validating += new System.ComponentModel.CancelEventHandler(this.txt_shipping_updates_Validating);
             // 
             // uiLabel11
             // 
@@ -232,6 +236,7 @@
             this.txt_shipping_cost.TabIndex = 17;
             this.txt_shipping_cost.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_shipping_cost.Watermark = "";
+            this.txt_shipping_cost.Validating += new System.ComponentModel.CancelEventHandler(this.txt_shipping_cost_Validating);
             // 
             // uiLabel12
             // 

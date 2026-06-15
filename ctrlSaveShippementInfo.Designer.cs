@@ -38,8 +38,6 @@
             this.txt_tracking_url = new Sunny.UI.UITextBox();
             this.uiLabel5 = new Sunny.UI.UILabel();
             this.uiLabel6 = new Sunny.UI.UILabel();
-            this.tlb_actual_delivery_date = new Sunny.UI.UILabel();
-            this.elbEstimated_delivery_date = new Sunny.UI.UILabel();
             this.uiLabel9 = new Sunny.UI.UILabel();
             this.uiLabel10 = new Sunny.UI.UILabel();
             this.txt_shipping_notes = new Sunny.UI.UIRichTextBox();
@@ -51,6 +49,8 @@
             this.cbShippmentStatus = new Sunny.UI.UIComboBox();
             this.epCheck = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSave = new Sunny.UI.UIButton();
+            this.dtpActualDeliveryDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpEstimatedDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.epCheck)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,39 +153,19 @@
             // 
             this.uiLabel6.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiLabel6.Location = new System.Drawing.Point(19, 243);
+            this.uiLabel6.Location = new System.Drawing.Point(19, 227);
             this.uiLabel6.Name = "uiLabel6";
-            this.uiLabel6.Size = new System.Drawing.Size(200, 32);
+            this.uiLabel6.Size = new System.Drawing.Size(177, 50);
             this.uiLabel6.TabIndex = 8;
             this.uiLabel6.Text = "Actual Delivery Date";
-            // 
-            // tlb_actual_delivery_date
-            // 
-            this.tlb_actual_delivery_date.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tlb_actual_delivery_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.tlb_actual_delivery_date.Location = new System.Drawing.Point(234, 243);
-            this.tlb_actual_delivery_date.Name = "tlb_actual_delivery_date";
-            this.tlb_actual_delivery_date.Size = new System.Drawing.Size(123, 32);
-            this.tlb_actual_delivery_date.TabIndex = 9;
-            this.tlb_actual_delivery_date.Text = "[????]";
-            // 
-            // elbEstimated_delivery_date
-            // 
-            this.elbEstimated_delivery_date.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.elbEstimated_delivery_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.elbEstimated_delivery_date.Location = new System.Drawing.Point(650, 243);
-            this.elbEstimated_delivery_date.Name = "elbEstimated_delivery_date";
-            this.elbEstimated_delivery_date.Size = new System.Drawing.Size(138, 32);
-            this.elbEstimated_delivery_date.TabIndex = 11;
-            this.elbEstimated_delivery_date.Text = "[????]";
             // 
             // uiLabel9
             // 
             this.uiLabel9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiLabel9.Location = new System.Drawing.Point(379, 243);
+            this.uiLabel9.Location = new System.Drawing.Point(400, 222);
             this.uiLabel9.Name = "uiLabel9";
-            this.uiLabel9.Size = new System.Drawing.Size(253, 32);
+            this.uiLabel9.Size = new System.Drawing.Size(184, 55);
             this.uiLabel9.TabIndex = 10;
             this.uiLabel9.Text = "estimated delivery date";
             // 
@@ -308,11 +288,27 @@
             this.btnSave.Text = "Save";
             this.btnSave.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             // 
+            // dtpActualDeliveryDate
+            // 
+            this.dtpActualDeliveryDate.Location = new System.Drawing.Point(206, 244);
+            this.dtpActualDeliveryDate.Name = "dtpActualDeliveryDate";
+            this.dtpActualDeliveryDate.Size = new System.Drawing.Size(155, 22);
+            this.dtpActualDeliveryDate.TabIndex = 21;
+            // 
+            // dtpEstimatedDate
+            // 
+            this.dtpEstimatedDate.Location = new System.Drawing.Point(615, 244);
+            this.dtpEstimatedDate.Name = "dtpEstimatedDate";
+            this.dtpEstimatedDate.Size = new System.Drawing.Size(153, 22);
+            this.dtpEstimatedDate.TabIndex = 22;
+            // 
             // ctrlSaveShippementInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.dtpEstimatedDate);
+            this.Controls.Add(this.dtpActualDeliveryDate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cbShippmentStatus);
             this.Controls.Add(this.uiLabel13);
@@ -322,9 +318,7 @@
             this.Controls.Add(this.uiLabel11);
             this.Controls.Add(this.txt_shipping_notes);
             this.Controls.Add(this.uiLabel10);
-            this.Controls.Add(this.elbEstimated_delivery_date);
             this.Controls.Add(this.uiLabel9);
-            this.Controls.Add(this.tlb_actual_delivery_date);
             this.Controls.Add(this.uiLabel6);
             this.Controls.Add(this.txt_tracking_url);
             this.Controls.Add(this.uiLabel5);
@@ -353,8 +347,6 @@
         private Sunny.UI.UITextBox txt_tracking_url;
         private Sunny.UI.UILabel uiLabel5;
         private Sunny.UI.UILabel uiLabel6;
-        private Sunny.UI.UILabel tlb_actual_delivery_date;
-        private Sunny.UI.UILabel elbEstimated_delivery_date;
         private Sunny.UI.UILabel uiLabel9;
         private Sunny.UI.UILabel uiLabel10;
         private Sunny.UI.UIRichTextBox txt_shipping_notes;
@@ -366,5 +358,7 @@
         private Sunny.UI.UIComboBox cbShippmentStatus;
         private System.Windows.Forms.ErrorProvider epCheck;
         private Sunny.UI.UIButton btnSave;
+        private System.Windows.Forms.DateTimePicker dtpEstimatedDate;
+        private System.Windows.Forms.DateTimePicker dtpActualDeliveryDate;
     }
 }

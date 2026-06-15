@@ -112,5 +112,103 @@ namespace DataAccessLayer
             }
         }
 
+        public static bool UpdateShipment(int shipmentID, string shipping_Carrier, string carrier_service_level, string tracking_number,
+            string tracking_url, DateTime? estimated_delivery_date, DateTime? actual_delivery_date,
+            string shipping_notes, string shipping_updates, decimal shipping_cost, int shipmentStatusID)
+        {
+            using (var connection = new SqlConnection(clsConnection.ConnectionString))
+            using (var command = new SqlCommand("SP_UpdateShipment", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add Shipment ID parameter
+                command.Parameters.AddWithValue("@ShipmentID", shipmentID);
+
+                // Add Shipping_Carrier parameter
+                command.Parameters.AddWithValue("@Shipping_Carrier", shipping_Carrier);
+
+                // Handle carrier_service_level (nullable)
+                if (string.IsNullOrEmpty(carrier_service_level))
+                {
+                    command.Parameters.AddWithValue("@carrier_service_level", DBNull.Value);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@carrier_service_level", carrier_service_level);
+                }
+
+                // Handle tracking_number (nullable)
+                if (string.IsNullOrEmpty(tracking_number))
+                {
+                    command.Parameters.AddWithValue("@tracking_number", DBNull.Value);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@tracking_number", tracking_number);
+                }
+
+                // Handle tracking_url (nullable)
+                if (string.IsNullOrEmpty(tracking_url))
+                {
+                    command.Parameters.AddWithValue("@tracking_url", DBNull.Value);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@tracking_url", tracking_url);
+                }
+
+                // Handle estimated_delivery_date (nullable)
+                if (estimated_delivery_date.HasValue)
+                {
+                    command.Parameters.AddWithValue("@estimated_delivery_date", estimated_delivery_date.Value);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@estimated_delivery_date", DBNull.Value);
+                }
+
+                // Handle actual_delivery_date (nullable)
+                if (actual_delivery_date.HasValue)
+                {
+                    command.Parameters.AddWithValue("@actual_delivery_date", actual_delivery_date.Value);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@actual_delivery_date", DBNull.Value);
+                }
+
+                // Handle shipping_notes (nullable)
+                if (string.IsNullOrEmpty(shipping_notes))
+                {
+                    command.Parameters.AddWithValue("@shipping_notes", DBNull.Value);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@shipping_notes", shipping_notes);
+                }
+
+                // Handle shipping_updates (nullable)
+                if (string.IsNullOrEmpty(shipping_updates))
+                {
+                    command.Parameters.AddWithValue("@shipping_updates", DBNull.Value);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@shipping_updates", shipping_updates);
+                }
+
+                // Add shipping_cost parameter
+                command.Parameters.AddWithValue("@shipping_cost", shipping_cost);
+
+                // Add ShipmentStatusID parameter
+                command.Parameters.AddWithValue("@ShipmentStatusID", shipmentStatusID);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                return true;
+            }
+        }
+
+
     }
 }

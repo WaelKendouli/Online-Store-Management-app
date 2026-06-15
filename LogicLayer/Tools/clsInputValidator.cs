@@ -114,6 +114,40 @@ namespace LibraryLogicLayer
           return  Regex.IsMatch(Amount, @"^(0|[1-9]\d*)(\.\d{1,2})?$");
         }
 
+        public static bool IsShippingCarrierNotCorrect(string ShippingCarrier) =>
+       Regex.IsMatch(ShippingCarrier, @"^(UPS|FedEx|USPS|DHL|Canada Post|Other)$") == false;
+
+        // 3. Carrier Service Level: alphanumeric, spaces, hyphens
+        public static bool IsCarrierServiceLevelNotCorrect(string CarrierServiceLevel) =>
+            Regex.IsMatch(CarrierServiceLevel, @"^[A-Za-z0-9\s\-]+$") == false;
+
+        // 4. Tracking Number: alphanumeric, 8-30 chars
+        public static bool IsTrackingNumberNotCorrect(string TrackingNumber) =>
+            Regex.IsMatch(TrackingNumber, @"^[A-Za-z0-9]{8,30}$") == false;
+
+        // 5. Tracking URL: http/https URL with track? and tracknum=
+        public static bool IsTrackingURLNotCorrect(string TrackingURL) =>
+            Regex.IsMatch(TrackingURL, @"^https?:\/\/[\w\-\.]+\/track\?.*tracknum=.*$") == false;
+
+        // 6. Estimated Delivery Date: YYYY-MM-DD format
+        public static bool IsEstimatedDeliveryDateNotCorrect(string EstimatedDeliveryDate) =>
+            Regex.IsMatch(EstimatedDeliveryDate, @"^\d{4}-\d{2}-\d{2}$") == false;
+
+        // 7. Actual Delivery Date: YYYY-MM-DD format (can be empty)
+        public static bool IsActualDeliveryDateNotCorrect(string ActualDeliveryDate) =>
+            string.IsNullOrEmpty(ActualDeliveryDate) ? false : Regex.IsMatch(ActualDeliveryDate, @"^\d{4}-\d{2}-\d{2}$") == false;
+
+        // 8. Shipping Notes: letters, numbers, spaces, common punctuation; up to 500 chars
+        public static bool IsShippingNotesNotCorrect(string ShippingNotes) =>
+            Regex.IsMatch(ShippingNotes, @"^[\w\s\.,!?-]{0,500}$") == false;
+
+        // 9. Shipping Updates: similar to notes, allows colons/semicolons; up to 255 chars
+        public static bool IsShippingUpdatesNotCorrect(string ShippingUpdates) =>
+            Regex.IsMatch(ShippingUpdates, @"^[\w\s\.,:;-]{0,255}$") == false;
+
+        // 10. Shipping Cost: positive number, optional 1-2 decimal places
+        public static bool IsShippingCostNotCorrect(string ShippingCost) =>
+            Regex.IsMatch(ShippingCost, @"^\d+(\.\d{1,2})?$") == false;
 
     }
 }

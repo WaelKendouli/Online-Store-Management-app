@@ -1,0 +1,113 @@
+ 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using CuoreUI.Controls;
+using LibraryLogicLayer;
+using LogicLayer;
+using LogicLayer.Events;
+
+
+
+
+public event EventHandler<clsCustomerEventsArgs> OnCustomerSaved;
+
+ 
+ protected virtual void CustomerSaved(clsCustomerEventsArgs e)
+ {
+     OnCustomerSaved?.Invoke(this, e);
+ }
+
+ public ctrlSaveCustomersInfos()
+ {
+     InitializeComponent();
+ }
+
+ private bool _IsEmpty(CancelEventArgs e , cuiTextBox textBox)
+ {
+     return clsErrorProviderVerfication._ValidateByErrorProvider(epCheck, textBox, e, string.IsNullOrEmpty, "this field shouldn't be empty");
+ }
+
+ private bool _Validate(CancelEventArgs e, cuiTextBox textBox , clsErrorProviderVerfication.delValidationFunction ValidationFunction  ,string ErrorMessage = "this field is not valid")
+ {
+     return clsErrorProviderVerfication._ValidateByErrorProvider(epCheck, textBox, e, ValidationFunction , ErrorMessage);
+ }
+
+ private void btnSave_Click(object sender, EventArgs e)
+ {
+     if (ValidateChildren())
+     {
+         return;
+     }
+     CustomerSaved(new clsCustomerEventsArgs(txtFirstName.Text, txtSecondName.Text, txtThirdName.Text, txtLastNmae.Text,
+         txtPhone.Text, txtEmail.Text, txtPassword.Text));
+ }
+
+ private void ctrlSaveCustomersInfos_Load(object sender, EventArgs e)
+ {
+     if (ValidateChildren()==false)
+     {
+         return;
+     }
+
+ }
+
+ private void txtFirstName_Validating(object sender, CancelEventArgs e)
+ {
+     if (_IsEmpty(e,txtFirstName))
+     {
+         return;
+     }
+     _Validate(e, txtFirstName, clsInputValidator.IsNameNotValid);
+ }
+
+ private void txtSecondName_Validating(object sender, CancelEventArgs e)
+ {
+     _Validate(e, txtSecondName, clsInputValidator.IsNameNotValid);
+ }
+
+ private void txtThirdName_Validating(object sender, CancelEventArgs e)
+ {
+     _Validate(e, txtThirdName, clsInputValidator.IsNameNotValid);
+ }
+
+ private void txtLastNmae_Validating(object sender, CancelEventArgs e)
+ {
+     if (_IsEmpty(e, txtLastNmae))
+     {
+         return;
+     }
+     _Validate(e, txtLastNmae, clsInputValidator.IsNameNotValid);
+ }
+
+ private void txtPhone_Validating(object sender, CancelEventArgs e)
+ {
+     if (_IsEmpty(e, txtPhone))
+     {
+         return;
+     }
+     _Validate(e, txtPhone, clsInputValidator.IsPhoneInputNotCorrect);
+ }
+
+ private void txtEmail_Validating(object sender, CancelEventArgs e)
+ {
+     if (_IsEmpty(e, txtEmail))
+     {
+         return;
+     }
+     _Validate(e, txtEmail, clsInputValidator.IsEmailNotValid);
+ }
+
+ private void txtPassword_Validating(object sender, CancelEventArgs e)
+ {
+     if (_IsEmpty(e, txtPassword))
+     {
+         return;
+     }
+ }

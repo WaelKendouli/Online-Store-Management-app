@@ -1,0 +1,32 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+Debug/
+Release/
+*.user
+*.suo
+*.userosscache
+
+# Build results
+*.dll
+*.exe
+*.pdb
+*.cache
+*.nupkg
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet packages
+packages/
+
+# Configuration with secrets
+appsettings.Development.json
+*.secrets.json
+*.local.json
+
+# System files
+Thumbs.db
+.DS_Store

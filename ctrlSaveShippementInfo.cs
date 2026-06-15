@@ -36,12 +36,12 @@ namespace OnlineStoreProject
                 return;
             }
             clsSunnyUIErrorProviderVerfication._ValidateByErrorProvider(epCheck, txt_Shipping_Carrier, e, clsInputValidator.IsShippingCarrierNotCorrect,
-                "this field shouldn't be empty");
+                "Shipping Carrier must be one of: UPS, FedEx, USPS, DHL, Canada Post, or Other\r\n\r\n");
         }
 
         private void txt_carrier_service_level_Validating(object sender, CancelEventArgs e)
         {
-
+            
         }
 
         private void txt_tracking_url_Validating(object sender, CancelEventArgs e)

@@ -164,6 +164,7 @@
     <Compile Include="ConvertersClasses\clsPDF_Converter.cs" />
     <Compile Include="ConvertersClasses\clsXML_Converter.cs" />
     <Compile Include="Events\ProductEventArgs .cs" />
+    <Compile Include="Events\ShipmentsEventArgs.cs" />
     <Compile Include="Interfaces\IF_Convertible.cs" />
     <Compile Include="Interfaces\IF_ConvertToDataTable.cs" />
     <Compile Include="Tools\clsInputValidator.cs" />

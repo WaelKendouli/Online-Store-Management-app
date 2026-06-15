@@ -28,7 +28,7 @@ namespace OnlineStoreProject.UI_Tools
         }
 
         // Helper: Generate numeric string only
-        private static string GenerateNumeric(int length)
+        public static string GenerateNumeric(int length)
         {
             StringBuilder sb = new StringBuilder();
 

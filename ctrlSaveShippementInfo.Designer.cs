@@ -336,6 +336,7 @@
             this.Controls.Add(this.uiLabel1);
             this.Name = "ctrlSaveShippementInfo";
             this.Size = new System.Drawing.Size(852, 579);
+            this.Load += new System.EventHandler(this.ctrlSaveShippementInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.epCheck)).EndInit();
             this.ResumeLayout(false);
 

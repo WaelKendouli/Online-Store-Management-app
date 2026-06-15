@@ -16,5 +16,10 @@ namespace OnlineStoreProject
         {
             InitializeComponent();
         }
+
+        private void ctrlSaveShippementInfo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

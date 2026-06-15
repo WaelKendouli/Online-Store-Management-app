@@ -189,6 +189,12 @@
     <Compile Include="ctrlSaveProductInfos.Designer.cs">
       <DependentUpon>ctrlSaveProductInfos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctrlSaveShippementInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlSaveShippementInfo.Designer.cs">
+      <DependentUpon>ctrlSaveShippementInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrlSearchCustomer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -285,6 +291,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI_Tools\clsErrorProviderVerfication.cs" />
     <Compile Include="UI_Tools\clsFolderSelector.cs" />
+    <Compile Include="UI_Tools\clsNumberGenerator.cs" />
     <Compile Include="UI_Tools\clsPhotosHandeling.cs" />
     <Compile Include="UI_Tools\clsSunnyUIDataGridViewSettings.cs" />
     <Compile Include="UI_Tools\clsSunnyUIErrorProviderVerfication.cs" />
@@ -302,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlSaveProductInfos.resx">
       <DependentUpon>ctrlSaveProductInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlSaveShippementInfo.resx">
+      <DependentUpon>ctrlSaveShippementInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlSearchCustomer.resx">
       <DependentUpon>ctrlSearchCustomer.cs</DependentUpon>

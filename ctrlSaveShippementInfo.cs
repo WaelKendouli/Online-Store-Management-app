@@ -63,7 +63,8 @@ namespace OnlineStoreProject
 
         private void txt_shipping_updates_Validating(object sender, CancelEventArgs e)
         {
-
+            clsSunnyUIErrorProviderVerfication._ValidateByErrorProvider(epCheck, txt_shipping_updates, e, clsInputValidator.IsShippingUpdatesNotCorrect,
+    "Shipping Updates can contain letters, numbers, spaces, and punctuation (. , : ; -). Maximum 255 characters");
         }
 
         private void txt_shipping_cost_Validating(object sender, CancelEventArgs e)

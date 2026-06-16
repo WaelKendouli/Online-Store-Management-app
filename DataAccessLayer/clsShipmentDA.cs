@@ -237,6 +237,33 @@ namespace DataAccessLayer
             }
         }
 
+        public static async Task<DataTable> GetShippementListAsync()
+        {
+            DataTable dtShippements = new DataTable();
+            using (SqlConnection conx = new SqlConnection(clsConnection.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SP_GetShippementList", conx))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    await conx.OpenAsync();
+                    try
+                    {
+                        using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (reader.HasRows)
+                            {
+                                dtShippements.Load(reader);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle exception (log it, etc.)
+                    }
+                }
+            }
+            return dtShippements;
+        }
 
     }
 }

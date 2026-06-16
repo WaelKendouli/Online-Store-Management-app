@@ -31,11 +31,13 @@
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.btnProductManagement = new Sunny.UI.UIButton();
             this.btnCustomerManagement = new Sunny.UI.UIButton();
+            this.btnShippment = new Sunny.UI.UIButton();
             this.uiPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.btnShippment);
             this.uiPanel1.Controls.Add(this.btnProductManagement);
             this.uiPanel1.Controls.Add(this.btnCustomerManagement);
             this.uiPanel1.FillColor = System.Drawing.Color.Indigo;
@@ -87,6 +89,24 @@
             this.btnCustomerManagement.TipsFont = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCustomerManagement.Click += new System.EventHandler(this.btnCustomerManagement_Click);
             // 
+            // btnShippment
+            // 
+            this.btnShippment.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShippment.FillColor = System.Drawing.Color.Indigo;
+            this.btnShippment.FillHoverColor = System.Drawing.Color.MediumPurple;
+            this.btnShippment.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShippment.ForeHoverColor = System.Drawing.Color.Black;
+            this.btnShippment.Location = new System.Drawing.Point(10, 250);
+            this.btnShippment.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btnShippment.Name = "btnShippment";
+            this.btnShippment.Radius = 0;
+            this.btnShippment.RectColor = System.Drawing.Color.Indigo;
+            this.btnShippment.RectDisableColor = System.Drawing.Color.Lavender;
+            this.btnShippment.Size = new System.Drawing.Size(322, 76);
+            this.btnShippment.TabIndex = 3;
+            this.btnShippment.Text = "Shippment management";
+            this.btnShippment.TipsFont = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -107,6 +127,7 @@
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIButton btnCustomerManagement;
         private Sunny.UI.UIButton btnProductManagement;
+        private Sunny.UI.UIButton btnShippment;
     }
 }
 

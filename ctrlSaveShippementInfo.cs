@@ -1,4 +1,5 @@
 ﻿using LibraryLogicLayer;
+using LogicLayer;
 using LogicLayer.Events;
 using OnlineStoreProject.UI_Tools;
 using System;
@@ -21,7 +22,7 @@ namespace OnlineStoreProject
             InitializeComponent();
         }
 
-
+        Dictionary<string, int> dicShipmentStatus = new Dictionary<string, int>(); 
         public event EventHandler<ShipmentsEventArgs> OnShippementInfoConfirmed;
         string Tracking_Number = string.Empty;
         protected virtual void OnShippementInfosSaved(ShipmentsEventArgs e)
@@ -33,11 +34,23 @@ namespace OnlineStoreProject
             Tracking_Number = clsNumberGenerator.GenerateRandomTrackingNumber();
             txt_tracking_number.Text = Tracking_Number;
         }
-
+        private void _InitializeShipmentStatus()
+        {
+            dicShipmentStatus = clsShippment.GetShipmentStatuses();
+            foreach (var item in dicShipmentStatus)
+            {
+                cbShippmentStatus.Items.Add(item.Key);
+            }
+            if (cbShippmentStatus.Items.Count > 0)
+            {
+                cbShippmentStatus.SelectedIndex = 0;
+            }
+        }
         void _InitializeUserControl()
         {
             dtpEstimatedDate.Value = DateTime.Now;
             dtpEstimatedDate.Value = DateTime.Now;
+            _InitializeShipmentStatus();
         }
         private void ctrlSaveShippementInfo_Load(object sender, EventArgs e)
         {
@@ -99,7 +112,7 @@ namespace OnlineStoreProject
             OnShippementInfosSaved(new ShipmentsEventArgs(txt_Shipping_Carrier.Text.ToString(), txt_carrier_service_level.Text.ToString(), Tracking_Number, txt_tracking_url.Text,
                 dtpEstimatedDate.Value, dtpActualDeliveryDate.Value,
                 txt_shipping_notes.Text, txt_shipping_updates.Text,
-                Convert.ToDecimal(txt_shipping_cost.Text), 1));
+                Convert.ToDecimal(txt_shipping_cost.Text), dicShipmentStatus[cbShippmentStatus.SelectedText]));
         }
     }
 }

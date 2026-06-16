@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LogicLayer;
+using OnlineStoreProject.UI_Tools;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,25 @@ namespace OnlineStoreProject.Shippment_UI
         public frmShippmentManagement()
         {
             InitializeComponent();
+        }
+        DataTable dtShipments = new DataTable();
+
+        private async void LoadShipmentList()
+        {
+            dtShipments = await clsShippment.GetShippementListAsync();
+        }
+        private void txtInput_TextChanged(object sender, EventArgs e)
+        {
+            clsSunnyUIDataGridViewSettings.HandleTextBoxChangingEvent(txtInput, cbItems, dtShipments);
+        }
+        private void LoadData()
+        {
+            clsSunnyUIDataGridViewSettings.LoadData(dtShipments, dgvShipments, cbItems, null, 170);
+        }
+        private void frmShippmentManagement_Load(object sender, EventArgs e)
+        {
+            LoadShipmentList();
+            LoadData();
         }
     }
 }

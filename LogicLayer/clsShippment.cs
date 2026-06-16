@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO_Layer;
+using System.Data;
 namespace LogicLayer
 {
     public class clsShippment
@@ -235,7 +236,10 @@ namespace LogicLayer
             }
             return false;
         }
-
+        public static async Task<DataTable> GetShippementListAsync()
+        {
+            return await clsShipmentDA.GetShippementListAsync();
+        }
         // Override ToString for easy display
         public override string ToString()
         {

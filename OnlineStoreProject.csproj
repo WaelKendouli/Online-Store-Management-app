@@ -279,6 +279,12 @@
     <Compile Include="Shippment_UI\frmSaveShippmentInfos.Designer.cs">
       <DependentUpon>frmSaveShippmentInfos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shippment_UI\frmShippmentManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shippment_UI\frmShippmentManagement.Designer.cs">
+      <DependentUpon>frmShippmentManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_Tools\clsConverter.cs" />
     <Compile Include="UI_Tools\clsCustomDataGridViewUserControl.cs" />
     <Compile Include="Form1.cs">
@@ -375,6 +381,9 @@
     </Compile>
     <EmbeddedResource Include="Shippment_UI\frmSaveShippmentInfos.resx">
       <DependentUpon>frmSaveShippmentInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shippment_UI\frmShippmentManagement.resx">
+      <DependentUpon>frmShippmentManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

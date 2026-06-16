@@ -37,5 +37,12 @@ namespace OnlineStoreProject.Shippment_UI
             LoadShipmentList();
             LoadData();
         }
+
+        private void btnAddNewShipment_Click(object sender, EventArgs e)
+        {
+            frmSaveShippmentInfos frm = new frmSaveShippmentInfos();
+            frm.ShowDialog();
+            LoadData();
+        }
     }
 }

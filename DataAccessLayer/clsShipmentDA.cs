@@ -128,7 +128,7 @@ namespace DataAccessLayer
                         // Assuming the table has StatusName and StatusID columns
                         // Adjust column names based on your actual ShippmentStatus table structure
                         string statusName = reader.GetString(reader.GetOrdinal("StatusName")); // Or "Status_Name"
-                        int statusID = reader.GetInt32(reader.GetOrdinal("StatusID")); // Or "Status_ID"
+                        int statusID = reader.GetInt32(reader.GetOrdinal("ID")); // Or "Status_ID"
 
                         if (!DicShippementStatus.ContainsKey(statusName))
                         {

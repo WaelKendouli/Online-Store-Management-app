@@ -49,7 +49,35 @@ namespace LogicLayer.Events
         }
 
         public ShipmentsEventArgs(
-            string shippment_ID,
+           string shippment_ID,
+           string shipping_Carrier,
+           string carrier_service_level,
+           string tracking_number,
+           string tracking_url,
+           DateTime estimated_delivery_date,
+           DateTime actual_delivery_date,
+           string shipping_notes,
+           string shipping_updates,
+           decimal shipping_cost,
+           int shipmentStatusID)
+        {
+            Shippment_ID = shippment_ID;
+            Shipping_Carrier = shipping_Carrier;
+            this.carrier_service_level = carrier_service_level;
+            this.tracking_number = tracking_number;
+            this.tracking_url = tracking_url;
+            this.estimated_delivery_date = estimated_delivery_date;
+            this.actual_delivery_date = actual_delivery_date;
+            this.shipping_notes = shipping_notes;
+            this.shipping_updates = shipping_updates;
+            this.shipping_cost = shipping_cost;
+            ShipmentStatusID = shipmentStatusID;
+        }
+
+
+
+        public ShipmentsEventArgs(
+            
             string shipping_Carrier,
             string carrier_service_level,
             string tracking_number,
@@ -61,7 +89,7 @@ namespace LogicLayer.Events
             decimal shipping_cost,
             int shipmentStatusID)
         {
-            Shippment_ID = shippment_ID;
+            
             Shipping_Carrier = shipping_Carrier;
             this.carrier_service_level = carrier_service_level;
             this.tracking_number = tracking_number;

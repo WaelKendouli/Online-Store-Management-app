@@ -41,14 +41,31 @@ namespace OnlineStoreProject.Shippment_UI
                     _Mode = enShipments.Update;
                     break;
                 case enShipments.Update:
-
+                    Operation_Name = " Updating ";
+                    if (Shippment==null)
+                    {
+                        throw new Exception("Shipment object is null");
+                    }
+                    Shippment.EditAttributes(e);
                     break;
+                    
+            }
+            if (Shippment.Save())
+            {
+                MessageBox.Show($"{Operation_Name}Shipment done successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"{Operation_Name}Shipment failed", "",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
 
         }
         private void ctrlSaveShippementInfo1_OnShippementInfoConfirmed(object sender, ShipmentsEventArgs e)
         {
-
+            Save(e);
+            
         }
 
         private void frmSaveShippmentInfos_Load(object sender, EventArgs e)

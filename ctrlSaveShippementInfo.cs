@@ -94,7 +94,10 @@ namespace OnlineStoreProject
             {
                 return;
             }
-            OnShippementInfosSaved(new ShipmentsEventArgs(txt_Shipping_Carrier.Text.ToString() , txt_carrier_service_level.Text.ToString() , ))
+            OnShippementInfosSaved(new ShipmentsEventArgs(txt_Shipping_Carrier.Text.ToString(), txt_carrier_service_level.Text.ToString(), Tracking_Number, txt_tracking_url.Text,
+                dtpEstimatedDate.Value, dtpActualDeliveryDate.Value,
+                txt_shipping_notes.Text, txt_shipping_updates.Text,
+                Convert.ToDecimal(txt_shipping_cost.Text), 1));
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO_Layer;
 using System.Data;
+using LogicLayer.Events;
 namespace LogicLayer
 {
     public class clsShippment
@@ -32,6 +33,7 @@ namespace LogicLayer
         public decimal Shipping_Cost { get; set; }
         public int ShipmentStatusID { get; set; }
 
+        
         // Private constructor for existing shipment (Update mode)
         private clsShippment(
             int shipmentID,
@@ -220,7 +222,7 @@ namespace LogicLayer
                     break;
 
                 case Mode.eUpdate:
-                    return UpdateShipment(
+                    if (UpdateShipment(
                         this.ShipmentID,
                         this.Shipping_Carrier,
                         this.Carrier_Service_Level,
@@ -232,7 +234,22 @@ namespace LogicLayer
                         this.Shipping_Updates,
                         this.Shipping_Cost,
                         this.ShipmentStatusID
-                    );
+                    ))
+                    {
+                        DTO = new ShipmentDTO(this.ShipmentID,
+                        this.Shipping_Carrier,
+                        this.Carrier_Service_Level,
+                        this.Tracking_Number,
+                        this.Tracking_URL,
+                        this.Estimated_Delivery_Date,
+                        this.Actual_Delivery_Date,
+                        this.Shipping_Notes,
+                        this.Shipping_Updates,
+                        this.Shipping_Cost,
+                        this.ShipmentStatusID);
+                        return true;
+                    }
+                    return false;
             }
             return false;
         }
@@ -245,10 +262,25 @@ namespace LogicLayer
         {
             return $"Shipment #{ShipmentID} - {Shipping_Carrier} - {ShipmentStatusID}";
         }
+
+        public void EditAttributes(ShipmentsEventArgs e)
+        {
+            this.Shipping_Carrier = e.Shipping_Carrier;
+            this.Carrier_Service_Level = e.carrier_service_level;
+            this.Tracking_Number = e.tracking_number;
+            this.Tracking_URL = e.tracking_url;
+            this.Estimated_Delivery_Date = e.estimated_delivery_date;
+            this.Actual_Delivery_Date = e.actual_delivery_date;
+            this.Shipping_Notes = e.shipping_notes;
+            this.Shipping_Updates = e.shipping_updates;
+            this.Shipping_Cost = e.shipping_cost;
+            this.ShipmentStatusID = e.ShipmentStatusID;
+        }
+
+        }
+
+        // Data Transfer Object for Shipment
+
+
+
     }
-
-    // Data Transfer Object for Shipment
-    
-
-    
-}

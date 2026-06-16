@@ -23,6 +23,9 @@ namespace OnlineStoreProject.Shippment_UI
         private async void LoadShipmentList()
         {
             dtShipments = await clsShippment.GetShippementListAsync();
+            dgvShipments.DataSource = dtShipments;
+            clsSunnyUIDataGridViewSettings.LoadData(dtShipments, dgvShipments, cbItems, null, 170);
+
         }
         private void txtInput_TextChanged(object sender, EventArgs e)
         {
@@ -31,7 +34,6 @@ namespace OnlineStoreProject.Shippment_UI
         private void LoadData()
         {
             LoadShipmentList();
-            clsSunnyUIDataGridViewSettings.LoadData(dtShipments, dgvShipments, cbItems, null, 170);
         }
         private void frmShippmentManagement_Load(object sender, EventArgs e)
         {

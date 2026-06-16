@@ -36,6 +36,7 @@ namespace OnlineStoreProject
         }
         private void _InitializeShipmentStatus()
         {
+            cbShippmentStatus.Items.Clear();
             dicShipmentStatus = clsShippment.GetShipmentStatuses();
             foreach (var item in dicShipmentStatus)
             {

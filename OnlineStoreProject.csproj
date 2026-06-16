@@ -273,6 +273,12 @@
     <Compile Include="Products_UI\frmSaveProductsInfos.Designer.cs">
       <DependentUpon>frmSaveProductsInfos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shippment_UI\frmSaveShippmentInfos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shippment_UI\frmSaveShippmentInfos.Designer.cs">
+      <DependentUpon>frmSaveShippmentInfos.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_Tools\clsConverter.cs" />
     <Compile Include="UI_Tools\clsCustomDataGridViewUserControl.cs" />
     <Compile Include="Form1.cs">
@@ -367,6 +373,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Shippment_UI\frmSaveShippmentInfos.resx">
+      <DependentUpon>frmSaveShippmentInfos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

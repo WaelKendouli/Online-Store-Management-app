@@ -99,5 +99,10 @@ namespace OnlineStoreProject
             frmSearchCustomerForRating frm = new frmSearchCustomerForRating();
             frm.ShowDialog();
         }
+
+        private void addShippementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

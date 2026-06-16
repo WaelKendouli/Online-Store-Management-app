@@ -292,6 +292,7 @@
             this.btnSave.TabIndex = 20;
             this.btnSave.Text = "Save";
             this.btnSave.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dtpActualDeliveryDate
             // 

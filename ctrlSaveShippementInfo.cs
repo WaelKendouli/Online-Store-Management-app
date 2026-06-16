@@ -1,4 +1,5 @@
 ﻿using LibraryLogicLayer;
+using LogicLayer.Events;
 using OnlineStoreProject.UI_Tools;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,21 @@ namespace OnlineStoreProject
             InitializeComponent();
         }
 
-       
 
-
+        public event EventHandler<ShipmentsEventArgs> OnShippementInfoConfirmed;
+        string Tracking_Number = string.Empty;
+        protected virtual void OnShippementInfosSaved(ShipmentsEventArgs e)
+        {
+            OnShippementInfoConfirmed?.Invoke(this, e);
+        }
+        private void GenerateNumber()
+        {
+            Tracking_Number = clsNumberGenerator.GenerateRandomTrackingNumber();
+            txt_tracking_number.Text = Tracking_Number;
+        }
         private void ctrlSaveShippementInfo_Load(object sender, EventArgs e)
         {
-
+            GenerateNumber();
         }
 
         private void txt_Shipping_Carrier_Validating(object sender, CancelEventArgs e)
@@ -76,6 +86,15 @@ namespace OnlineStoreProject
             }
             clsSunnyUIErrorProviderVerfication._ValidateByErrorProvider(epCheck, txt_shipping_cost, e, clsInputValidator.IsShippingCostNotCorrect,
                 "Shipping Cost must be a positive number with up to 2 decimal places (e.g., 12.99, 5.00, 9.50)");
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (ValidateChildren())
+            {
+                return;
+            }
+            OnShippementInfosSaved(new ShipmentsEventArgs(txt_Shipping_Carrier.Text.ToString() , txt_carrier_service_level.Text.ToString() , ))
         }
     }
 }

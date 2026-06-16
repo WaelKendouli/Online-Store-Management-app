@@ -261,8 +261,9 @@
             // cbShippmentStatus
             // 
             this.cbShippmentStatus.DataSource = null;
+            this.cbShippmentStatus.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             this.cbShippmentStatus.FillColor = System.Drawing.Color.White;
-            this.cbShippmentStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbShippmentStatus.Font = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbShippmentStatus.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.cbShippmentStatus.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.cbShippmentStatus.Location = new System.Drawing.Point(570, 416);

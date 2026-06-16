@@ -26,5 +26,10 @@ namespace OnlineStoreProject.Shippment_UI
         {
 
         }
+
+        private void frmSaveShippmentInfos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -56,17 +56,12 @@ namespace OnlineStoreProject
             {
                 return;
             }
-            clsSunnyUIErrorProviderVerfication._ValidateByErrorProvider(epCheck, txt_carrier_service_level, e, clsInputValidator.IsShippingCarrierNotCorrect,
-                "Carrier Service Level can only contain letters, numbers, spaces, and hyphens (e.g., Next Day Air, Ground Economy)");
+           
         }
 
         private void txt_tracking_url_Validating(object sender, CancelEventArgs e)
         {
-            if (clsSunnyUIErrorProviderVerfication._ValidateByErrorProvider(epCheck, txt_tracking_url,
-   e, string.IsNullOrEmpty, "this field shouldn't be empty"))
-            {
-                return;
-            }
+            
             clsSunnyUIErrorProviderVerfication._ValidateByErrorProvider(epCheck, txt_tracking_url, e, clsInputValidator.IsTrackingURLNotCorrect,
                 "Tracking URL must be a valid web address starting with http:// or https:// and contain '/track?' followed by 'tracknum=' (e.g., https://www.ups.com/track?tracknum=1Z999AA1)");
         }

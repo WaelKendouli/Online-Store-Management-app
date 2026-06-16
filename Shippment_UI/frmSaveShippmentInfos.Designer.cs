@@ -55,6 +55,7 @@
             this.uiPanel1.Name = "uiPanel1";
             this.uiPanel1.Size = new System.Drawing.Size(134, 715);
             this.uiPanel1.TabIndex = 1;
+            this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uiLabel1
@@ -81,6 +82,7 @@
             this.MinimizeBox = false;
             this.Name = "frmSaveShippmentInfos";
             this.Text = "Save Shippment Infos";
+            this.Load += new System.EventHandler(this.frmSaveShippmentInfos_Load);
             this.ResumeLayout(false);
 
         }

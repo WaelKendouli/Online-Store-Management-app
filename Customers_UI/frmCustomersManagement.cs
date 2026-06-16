@@ -1,5 +1,6 @@
 ﻿using LogicLayer;
 using OnlineStoreProject.Customers_UI;
+using OnlineStoreProject.Shippment_UI;
 using OnlineStoreProject.UI_Tools;
 using System;
 using System.Collections.Generic;
@@ -102,7 +103,8 @@ namespace OnlineStoreProject
 
         private void addShippementToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            frmSaveShippmentInfos frm = new frmSaveShippmentInfos();
+            frm.ShowDialog();
         }
     }
 }

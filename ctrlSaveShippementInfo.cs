@@ -33,9 +33,16 @@ namespace OnlineStoreProject
             Tracking_Number = clsNumberGenerator.GenerateRandomTrackingNumber();
             txt_tracking_number.Text = Tracking_Number;
         }
+
+        void _InitializeUserControl()
+        {
+            dtpEstimatedDate.Value = DateTime.Now;
+            dtpEstimatedDate.Value = DateTime.Now;
+        }
         private void ctrlSaveShippementInfo_Load(object sender, EventArgs e)
         {
             GenerateNumber();
+            _InitializeUserControl();
         }
 
         private void txt_Shipping_Carrier_Validating(object sender, CancelEventArgs e)

@@ -108,7 +108,7 @@ namespace OnlineStoreProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (ValidateChildren())
+            if (ValidateChildren()==false)
             {
                 return;
             }

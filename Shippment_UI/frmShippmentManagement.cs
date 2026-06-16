@@ -30,11 +30,12 @@ namespace OnlineStoreProject.Shippment_UI
         }
         private void LoadData()
         {
+            LoadShipmentList();
             clsSunnyUIDataGridViewSettings.LoadData(dtShipments, dgvShipments, cbItems, null, 170);
         }
         private void frmShippmentManagement_Load(object sender, EventArgs e)
         {
-            LoadShipmentList();
+            
             LoadData();
         }
 

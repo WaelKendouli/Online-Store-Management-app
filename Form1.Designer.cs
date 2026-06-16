@@ -106,6 +106,7 @@
             this.btnShippment.TabIndex = 3;
             this.btnShippment.Text = "Shippment management";
             this.btnShippment.TipsFont = new System.Drawing.Font("Microsoft YaHei", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShippment.Click += new System.EventHandler(this.btnShippment_Click);
             // 
             // Form1
             // 

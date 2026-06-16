@@ -1,4 +1,5 @@
 ﻿using OnlineStoreProject.Products_UI;
+using OnlineStoreProject.Shippment_UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,12 @@ namespace OnlineStoreProject
         private void btnProductManagement_Click(object sender, EventArgs e)
         {
             frmProductsManagemts frm = new frmProductsManagemts();
+            frm.ShowDialog();
+        }
+
+        private void btnShippment_Click(object sender, EventArgs e)
+        {
+            frmShippmentManagement frm = new frmShippmentManagement();
             frm.ShowDialog();
         }
     }

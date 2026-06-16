@@ -112,6 +112,34 @@ namespace DataAccessLayer
             }
         }
 
+        public static Dictionary<string, int> GetShippementStatus()
+        {
+            Dictionary<string, int> DicShippementStatus = new Dictionary<string, int>();
+            using (SqlConnection conx = new SqlConnection(clsConnection.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("SP_GetShippementStatus", conx))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conx.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // Assuming the table has StatusName and StatusID columns
+                        // Adjust column names based on your actual ShippmentStatus table structure
+                        string statusName = reader.GetString(reader.GetOrdinal("StatusName")); // Or "Status_Name"
+                        int statusID = reader.GetInt32(reader.GetOrdinal("StatusID")); // Or "Status_ID"
+
+                        if (!DicShippementStatus.ContainsKey(statusName))
+                        {
+                            DicShippementStatus.Add(statusName, statusID);
+                        }
+                    }
+                }
+            }
+            return DicShippementStatus;
+        }
+
         public static bool UpdateShipment(int shipmentID, string shipping_Carrier, string carrier_service_level, string tracking_number,
             string tracking_url, DateTime? estimated_delivery_date, DateTime? actual_delivery_date,
             string shipping_notes, string shipping_updates, decimal shipping_cost, int shipmentStatusID)

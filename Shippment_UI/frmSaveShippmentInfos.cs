@@ -17,6 +17,13 @@ namespace OnlineStoreProject.Shippment_UI
         {
             InitializeComponent();
         }
+        int _ShipmentID;
+        public frmSaveShippmentInfos(int ShipmentID)
+        {
+            InitializeComponent();
+            _ShipmentID = ShipmentID;
+            _Mode = enShipments.Update;
+        }
         enum enShipments { 
             Add , Update
         }

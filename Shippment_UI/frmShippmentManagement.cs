@@ -53,6 +53,11 @@ namespace OnlineStoreProject.Shippment_UI
 
         }
 
-      
+        private void updateThisShippemntToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSaveShippmentInfos frm = new frmSaveShippmentInfos((int)dgvShipments.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+
+        }
     }
 }

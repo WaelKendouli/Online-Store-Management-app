@@ -66,5 +66,11 @@ namespace OnlineStoreProject.Shippment_UI
             frmPDFConverter frm = new frmPDFConverter(dtShipments, "Shipments");
             frm.ShowDialog();
         }
+
+        private void xMLFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConvertToXML frm = new frmConvertToXML(dtShipments, "Shipments");
+            frm.ShowDialog();
+        }
     }
 }

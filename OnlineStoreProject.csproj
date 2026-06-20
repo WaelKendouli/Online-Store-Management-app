@@ -285,6 +285,12 @@
     <Compile Include="Shippment_UI\frmSaveShippmentInfos.Designer.cs">
       <DependentUpon>frmSaveShippmentInfos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shippment_UI\frmShipmentCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shippment_UI\frmShipmentCard.Designer.cs">
+      <DependentUpon>frmShipmentCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shippment_UI\frmShippmentManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -390,6 +396,9 @@
     </Compile>
     <EmbeddedResource Include="Shippment_UI\frmSaveShippmentInfos.resx">
       <DependentUpon>frmSaveShippmentInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shippment_UI\frmShipmentCard.resx">
+      <DependentUpon>frmShipmentCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shippment_UI\frmShippmentManagement.resx">
       <DependentUpon>frmShippmentManagement.cs</DependentUpon>

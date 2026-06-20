@@ -46,6 +46,7 @@
             this.xMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jsonFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteThisShippementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seeDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShipments)).BeginInit();
             this.cmsOptions.SuspendLayout();
             this.SuspendLayout();
@@ -169,9 +170,10 @@
             this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.updateThisShippemntToolStripMenuItem,
             this.turnThisDataToToolStripMenuItem,
-            this.deleteThisShippementToolStripMenuItem});
+            this.deleteThisShippementToolStripMenuItem,
+            this.seeDetailsToolStripMenuItem});
             this.cmsOptions.Name = "uiContextMenuStrip1";
-            this.cmsOptions.Size = new System.Drawing.Size(282, 122);
+            this.cmsOptions.Size = new System.Drawing.Size(282, 152);
             // 
             // updateThisShippemntToolStripMenuItem
             // 
@@ -218,6 +220,13 @@
             this.deleteThisShippementToolStripMenuItem.Text = "Delete this shippement";
             this.deleteThisShippementToolStripMenuItem.Click += new System.EventHandler(this.deleteThisShippementToolStripMenuItem_Click);
             // 
+            // seeDetailsToolStripMenuItem
+            // 
+            this.seeDetailsToolStripMenuItem.Name = "seeDetailsToolStripMenuItem";
+            this.seeDetailsToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+            this.seeDetailsToolStripMenuItem.Text = "See details";
+            this.seeDetailsToolStripMenuItem.Click += new System.EventHandler(this.seeDetailsToolStripMenuItem_Click);
+            // 
             // frmShippmentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -254,5 +263,6 @@
         private System.Windows.Forms.ToolStripMenuItem xMLFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jsonFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteThisShippementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem seeDetailsToolStripMenuItem;
     }
 }

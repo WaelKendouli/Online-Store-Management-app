@@ -98,5 +98,11 @@ namespace OnlineStoreProject.Shippment_UI
             DeleteShipment();
             LoadData();
         }
+
+        private void seeDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShipmentCard frm = new frmShipmentCard((int)dgvShipments.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

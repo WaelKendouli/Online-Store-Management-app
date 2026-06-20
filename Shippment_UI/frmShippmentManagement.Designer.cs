@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,7 +39,15 @@
             this.txtInput = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.btnAddNewShipment = new Sunny.UI.UIButton();
+            this.cmsOptions = new Sunny.UI.UIContextMenuStrip(this.components);
+            this.updateThisShippemntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.turnThisDataToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pDFFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jsonFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteThisShippementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShipments)).BeginInit();
+            this.cmsOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvShipments
@@ -133,6 +142,7 @@
             this.uiLabel1.Size = new System.Drawing.Size(457, 51);
             this.uiLabel1.TabIndex = 3;
             this.uiLabel1.Text = "Manage shippments ";
+            this.uiLabel1.Click += new System.EventHandler(this.uiLabel1_Click);
             // 
             // btnAddNewShipment
             // 
@@ -149,6 +159,58 @@
             this.btnAddNewShipment.Text = "Add new shipment";
             this.btnAddNewShipment.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnAddNewShipment.Click += new System.EventHandler(this.btnAddNewShipment_Click);
+            // 
+            // cmsOptions
+            // 
+            this.cmsOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.cmsOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cmsOptions.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateThisShippemntToolStripMenuItem,
+            this.turnThisDataToToolStripMenuItem,
+            this.deleteThisShippementToolStripMenuItem});
+            this.cmsOptions.Name = "uiContextMenuStrip1";
+            this.cmsOptions.Size = new System.Drawing.Size(282, 94);
+            // 
+            // updateThisShippemntToolStripMenuItem
+            // 
+            this.updateThisShippemntToolStripMenuItem.Name = "updateThisShippemntToolStripMenuItem";
+            this.updateThisShippemntToolStripMenuItem.Size = new System.Drawing.Size(277, 30);
+            this.updateThisShippemntToolStripMenuItem.Text = "Update this shippemnt";
+            // 
+            // turnThisDataToToolStripMenuItem
+            // 
+            this.turnThisDataToToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pDFFileToolStripMenuItem,
+            this.xMLFileToolStripMenuItem,
+            this.jsonFileToolStripMenuItem});
+            this.turnThisDataToToolStripMenuItem.Name = "turnThisDataToToolStripMenuItem";
+            this.turnThisDataToToolStripMenuItem.Size = new System.Drawing.Size(277, 30);
+            this.turnThisDataToToolStripMenuItem.Text = "Turn this data to";
+            // 
+            // pDFFileToolStripMenuItem
+            // 
+            this.pDFFileToolStripMenuItem.Name = "pDFFileToolStripMenuItem";
+            this.pDFFileToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
+            this.pDFFileToolStripMenuItem.Text = "PDF file";
+            // 
+            // xMLFileToolStripMenuItem
+            // 
+            this.xMLFileToolStripMenuItem.Name = "xMLFileToolStripMenuItem";
+            this.xMLFileToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
+            this.xMLFileToolStripMenuItem.Text = "XML file";
+            // 
+            // jsonFileToolStripMenuItem
+            // 
+            this.jsonFileToolStripMenuItem.Name = "jsonFileToolStripMenuItem";
+            this.jsonFileToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
+            this.jsonFileToolStripMenuItem.Text = "Json file";
+            // 
+            // deleteThisShippementToolStripMenuItem
+            // 
+            this.deleteThisShippementToolStripMenuItem.Name = "deleteThisShippementToolStripMenuItem";
+            this.deleteThisShippementToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
+            this.deleteThisShippementToolStripMenuItem.Text = "Delete this shippement";
             // 
             // frmShippmentManagement
             // 
@@ -167,6 +229,7 @@
             this.Text = "frmShippmentManagement";
             this.Load += new System.EventHandler(this.frmShippmentManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvShipments)).EndInit();
+            this.cmsOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -178,5 +241,12 @@
         private Sunny.UI.UITextBox txtInput;
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UIButton btnAddNewShipment;
+        private Sunny.UI.UIContextMenuStrip cmsOptions;
+        private System.Windows.Forms.ToolStripMenuItem updateThisShippemntToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turnThisDataToToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pDFFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jsonFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteThisShippementToolStripMenuItem;
     }
 }

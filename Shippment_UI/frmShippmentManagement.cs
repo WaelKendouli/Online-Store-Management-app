@@ -47,5 +47,12 @@ namespace OnlineStoreProject.Shippment_UI
             frm.ShowDialog();
             LoadData();
         }
+
+        private void uiLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-
+using DTO_Layer;
 namespace OnlineStoreProject
 {
     public partial class ctrlSaveShippementInfo : UserControl
@@ -33,6 +33,29 @@ namespace OnlineStoreProject
         {
             Tracking_Number = clsNumberGenerator.GenerateRandomTrackingNumber();
             txt_tracking_number.Text = Tracking_Number;
+        }
+
+        public void FillExistingInformation(ShipmentDTO DTO)
+        {
+            if (DTO == null)
+                return;
+
+            // Populate text fields
+            txt_Shipping_Carrier.Text = DTO.Shipping_Carrier ?? string.Empty;
+            txt_carrier_service_level.Text = DTO.Carrier_Service_Level ?? string.Empty;
+            txt_tracking_number.Text = DTO.Tracking_Number ?? string.Empty;
+            txt_tracking_url.Text = DTO.Tracking_URL ?? string.Empty;
+            txt_shipping_notes.Text = DTO.Shipping_Notes ?? string.Empty;
+            txt_shipping_updates.Text = DTO.Shipping_Updates ?? string.Empty;
+            txt_shipping_cost.Text = DTO.Shipping_Cost.ToString();
+
+            // Populate date fields
+            dtpEstimatedDate.Value = DTO.Estimated_Delivery_Date ?? DateTime.Now;
+            dtpActualDeliveryDate.Value = DTO.Actual_Delivery_Date ?? DateTime.Now;
+
+            // Update the Tracking_Number field variable
+            Tracking_Number = DTO.Tracking_Number ?? string.Empty;
+
         }
         private void _InitializeShipmentStatus()
         {

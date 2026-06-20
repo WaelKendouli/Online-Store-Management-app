@@ -213,6 +213,16 @@ namespace LogicLayer
             );
         }
 
+        /// <summary>
+        /// Used in ctrlShipment card to get the status name instantly
+        /// </summary>
+        /// <returns>Dictionary<int,string></returns>
+        public static Dictionary<int, string> GetStatusIndexes()
+        {
+            return clsShipmentDA.GetStatusIndexes(); 
+        }
+
+
         public bool Save()
         {
             switch (_Mode)

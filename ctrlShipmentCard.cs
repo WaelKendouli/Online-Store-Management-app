@@ -36,6 +36,8 @@ namespace OnlineStoreProject
             lbShipmentCarrier.Text = shipment.Shipping_Carrier;
             txtNote.Text = shipment.Shipping_Notes;
             txtShippingUpdates.Text = shipment.Shipping_Updates;
+            txt_tracking_number.Text = shipment.Tracking_Number;
+            lbTrackingURL.Text = shipment.Tracking_URL;
         }
         private void lbTrackingURL_Click(object sender, EventArgs e)
         {

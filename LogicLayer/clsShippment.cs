@@ -192,7 +192,7 @@ namespace LogicLayer
             return clsShipmentDA.GetShippementStatus();
         }
 
-        public clsShippment GetShipmentByID(int ShipmentID)
+        public static clsShippment GetShipmentByID(int ShipmentID)
         {
             ShipmentDTO DTO = clsShipmentDA.FindShipmentByID(ShipmentID);
             return new clsShippment(

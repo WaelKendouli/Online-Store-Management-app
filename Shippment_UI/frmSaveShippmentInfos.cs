@@ -25,7 +25,8 @@ namespace OnlineStoreProject.Shippment_UI
             InitializeComponent();
             _ShipmentID = ShipmentID;
             _Mode = enShipments.Update;
-            ctrlSaveShippementInfo1.FillExistingInformation(clsShippment.GetShipmentByID(ShipmentID));
+            Shippment = clsShippment
+            ctrlSaveShippementInfo1.FillExistingInformation();
         }
         enum enShipments { 
             Add , Update

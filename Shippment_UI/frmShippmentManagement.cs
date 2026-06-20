@@ -42,6 +42,20 @@ namespace OnlineStoreProject.Shippment_UI
             LoadData();
         }
 
+        private void DeleteShipment()
+        {
+            if (MessageBox.Show("Are you sure you want to delete this shipment" , "" , MessageBoxButtons.YesNo, MessageBoxIcon.Warning)==DialogResult.Yes)
+            {
+                if (clsShippment.DeleteShipment((int)dgvShipments.CurrentRow.Cells[0].Value))
+                {
+                    MessageBox.Show("Deleted successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Deletion failed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         private void btnAddNewShipment_Click(object sender, EventArgs e)
         {
             frmSaveShippmentInfos frm = new frmSaveShippmentInfos();

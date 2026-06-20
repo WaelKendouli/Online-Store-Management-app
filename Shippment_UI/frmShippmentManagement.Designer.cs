@@ -171,7 +171,7 @@
             this.turnThisDataToToolStripMenuItem,
             this.deleteThisShippementToolStripMenuItem});
             this.cmsOptions.Name = "uiContextMenuStrip1";
-            this.cmsOptions.Size = new System.Drawing.Size(282, 94);
+            this.cmsOptions.Size = new System.Drawing.Size(282, 122);
             // 
             // updateThisShippemntToolStripMenuItem
             // 
@@ -195,6 +195,7 @@
             this.pDFFileToolStripMenuItem.Name = "pDFFileToolStripMenuItem";
             this.pDFFileToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.pDFFileToolStripMenuItem.Text = "PDF file";
+            this.pDFFileToolStripMenuItem.Click += new System.EventHandler(this.pDFFileToolStripMenuItem_Click);
             // 
             // xMLFileToolStripMenuItem
             // 

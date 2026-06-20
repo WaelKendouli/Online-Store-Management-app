@@ -141,6 +141,30 @@ namespace DataAccessLayer
             return DicShippementStatus;
         }
 
+        public static bool DeleteShipment(int shipmentID)
+        {
+            int rowsAffected = -1;
+            using (var connection = new SqlConnection(clsConnection.ConnectionString))
+            using (var command = new SqlCommand("SP_DeleteShipment", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ShipmentID", shipmentID);
+
+                try
+                {
+                    connection.Open();
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+
+                return (rowsAffected > 0);
+            }
+        }
+
+
         public static ShipmentDTO FindShipmentByID(int ShipmentID)
         {
             using (SqlConnection conx = new SqlConnection(clsConnection.ConnectionString))

@@ -57,7 +57,7 @@ namespace OnlineStoreProject.Shippment_UI
         {
             frmSaveShippmentInfos frm = new frmSaveShippmentInfos((int)dgvShipments.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
-
+            LoadData();
         }
     }
 }

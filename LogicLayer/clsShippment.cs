@@ -191,7 +191,10 @@ namespace LogicLayer
         {
             return clsShipmentDA.GetShippementStatus();
         }
-
+        public static bool DeleteShipment(int shipmentID)
+        {
+            return clsShipmentDA.DeleteShipment(shipmentID);
+        }
         public static clsShippment GetShipmentByID(int ShipmentID)
         {
             ShipmentDTO DTO = clsShipmentDA.FindShipmentByID(ShipmentID);

@@ -17,10 +17,10 @@ namespace OnlineStoreProject
         {
             InitializeComponent();
         }
-        Dictionary<string , int>
+        Dictionary<int, string> dicStatus = new Dictionary<int, string>();
         private void ctrlShipmentCard_Load(object sender, EventArgs e)
         {
-
+            dicStatus = clsShippment.GetStatusIndexes();
         }
         public void FillCard(clsShippment shipment)
         {
@@ -32,7 +32,10 @@ namespace OnlineStoreProject
             lbCost.Text = shipment.Shipping_Cost.ToString();
             lbDeliveryDate.Text = shipment.Actual_Delivery_Date.ToString();
             lbEstimatedDate.Text = shipment.Estimated_Delivery_Date.ToString();
-            lbSatus.Text = shipment.
+            lbSatus.Text = dicStatus[shipment.ShipmentStatusID].ToString();
+            lbShipmentCarrier.Text = shipment.Shipping_Carrier;
+            txtNote.Text = shipment.Shipping_Notes;
+            txtShippingUpdates.Text = shipment.Shipping_Updates;
         }
         private void lbTrackingURL_Click(object sender, EventArgs e)
         {

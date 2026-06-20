@@ -140,6 +140,37 @@ namespace DataAccessLayer
             }
             return DicShippementStatus;
         }
+        /// <summary>
+        /// Used in ctrlShipment card to get the status name instantly
+        /// </summary>
+        /// <returns>Dictionary<int,string></returns>
+        public static Dictionary<int,string > GetStatusIndexes()
+        {
+            Dictionary<int,string > DicShippementStatus = new Dictionary<int, string>();
+            using (SqlConnection conx = new SqlConnection(clsConnection.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("SP_GetShippementStatus", conx))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                conx.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        // Assuming the table has StatusName and StatusID columns
+                        // Adjust column names based on your actual ShippmentStatus table structure
+                        string statusName = reader.GetString(reader.GetOrdinal("StatusName")); // Or "Status_Name"
+                        int statusID = reader.GetInt32(reader.GetOrdinal("ID")); // Or "Status_ID"
+
+                        if (!DicShippementStatus.ContainsKey(statusID))
+                        {
+                            DicShippementStatus.Add(statusID,statusName );
+                        }
+                    }
+                }
+            }
+            return DicShippementStatus;
+        }
 
         public static bool DeleteShipment(int shipmentID)
         {

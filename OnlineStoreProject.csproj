@@ -207,6 +207,12 @@
     <Compile Include="ctrlSearchProduct.Designer.cs">
       <DependentUpon>ctrlSearchProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctrlShipmentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlShipmentCard.Designer.cs">
+      <DependentUpon>ctrlShipmentCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customers_UI\frmSaveCustomerInfos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlSearchProduct.resx">
       <DependentUpon>ctrlSearchProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlShipmentCard.resx">
+      <DependentUpon>ctrlShipmentCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customers_UI\frmSaveCustomerInfos.resx">
       <DependentUpon>frmSaveCustomerInfos.cs</DependentUpon>

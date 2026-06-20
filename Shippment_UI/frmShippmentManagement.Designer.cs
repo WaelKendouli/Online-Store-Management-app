@@ -216,6 +216,7 @@
             this.deleteThisShippementToolStripMenuItem.Name = "deleteThisShippementToolStripMenuItem";
             this.deleteThisShippementToolStripMenuItem.Size = new System.Drawing.Size(281, 30);
             this.deleteThisShippementToolStripMenuItem.Text = "Delete this shippement";
+            this.deleteThisShippementToolStripMenuItem.Click += new System.EventHandler(this.deleteThisShippementToolStripMenuItem_Click);
             // 
             // frmShippmentManagement
             // 

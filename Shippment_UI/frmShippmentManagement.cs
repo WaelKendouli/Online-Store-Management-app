@@ -92,5 +92,10 @@ namespace OnlineStoreProject.Shippment_UI
             frmConvertToJSON frm = new frmConvertToJSON(dtShipments, "Shipments");
             frm.ShowDialog();
         }
+
+        private void deleteThisShippementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteShipment();
+        }
     }
 }

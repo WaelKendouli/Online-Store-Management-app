@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO_Layer;
 using LogicLayer;
 using LogicLayer.Events;
 namespace OnlineStoreProject.Shippment_UI
@@ -18,12 +19,13 @@ namespace OnlineStoreProject.Shippment_UI
             InitializeComponent();
         }
         int _ShipmentID;
+    
         public frmSaveShippmentInfos(int ShipmentID)
         {
             InitializeComponent();
             _ShipmentID = ShipmentID;
             _Mode = enShipments.Update;
-            // Add find shippment by ID here 
+            _shipment
         }
         enum enShipments { 
             Add , Update

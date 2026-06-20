@@ -22,13 +22,14 @@ namespace OnlineStoreProject
             InitializeComponent();
         }
 
-        Dictionary<string, int> dicShipmentStatus = new Dictionary<string, int>(); 
+        Dictionary<string, int> dicShipmentStatus = new Dictionary<string, int>();
         public event EventHandler<ShipmentsEventArgs> OnShippementInfoConfirmed;
         string Tracking_Number = string.Empty;
         protected virtual void OnShippementInfosSaved(ShipmentsEventArgs e)
         {
             OnShippementInfoConfirmed?.Invoke(this, e);
         }
+       public int _ShipmentID { get; set; } =-1 ;
         private void GenerateNumber()
         {
             Tracking_Number = clsNumberGenerator.GenerateRandomTrackingNumber();
@@ -41,6 +42,7 @@ namespace OnlineStoreProject
                 return;
 
             // Populate text fields
+            _ShipmentID = DTO.ShipmentID;
             txt_Shipping_Carrier.Text = DTO.Shipping_Carrier ?? string.Empty;
             txt_carrier_service_level.Text = DTO.Carrier_Service_Level ?? string.Empty;
             txt_tracking_number.Text = DTO.Tracking_Number ?? string.Empty;
@@ -136,6 +138,7 @@ namespace OnlineStoreProject
             {
                 return;
             }
+            
             OnShippementInfosSaved(new ShipmentsEventArgs(txt_Shipping_Carrier.Text.ToString(), txt_carrier_service_level.Text.ToString(), Tracking_Number, txt_tracking_url.Text,
                 dtpEstimatedDate.Value, dtpActualDeliveryDate.Value,
                 txt_shipping_notes.Text, txt_shipping_updates.Text,

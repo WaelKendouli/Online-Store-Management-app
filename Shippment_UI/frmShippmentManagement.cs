@@ -96,6 +96,7 @@ namespace OnlineStoreProject.Shippment_UI
         private void deleteThisShippementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteShipment();
+            LoadData();
         }
     }
 }

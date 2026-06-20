@@ -87,7 +87,7 @@ namespace LogicLayer.ConvertersClasses
                 XRect rect = new XRect(x, y, columnWidths[col], rowHeight);
 
                 // Fill header background
-                gfx.DrawRectangle(XBrushes.Crimson, rect);
+                gfx.DrawRectangle(XBrushes.BlueViolet, rect);
                 gfx.DrawRectangle(XPens.Black, rect);
 
                 // Draw header text in white
@@ -125,7 +125,7 @@ namespace LogicLayer.ConvertersClasses
                     XRect rect = new XRect(x, y, columnWidths[col], rowHeight);
 
                     // Alternate row colors
-                    XBrush rowBrush = (row % 2 == 0) ? XBrushes.White : XBrushes.LightYellow;
+                    XBrush rowBrush = (row % 2 == 0) ? XBrushes.White : XBrushes.LightBlue;
                     gfx.DrawRectangle(rowBrush, rect);
                     gfx.DrawRectangle(XPens.LightGray, rect);
 

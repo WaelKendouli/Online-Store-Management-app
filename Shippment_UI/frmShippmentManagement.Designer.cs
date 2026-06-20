@@ -209,6 +209,7 @@
             this.jsonFileToolStripMenuItem.Name = "jsonFileToolStripMenuItem";
             this.jsonFileToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.jsonFileToolStripMenuItem.Text = "Json file";
+            this.jsonFileToolStripMenuItem.Click += new System.EventHandler(this.jsonFileToolStripMenuItem_Click);
             // 
             // deleteThisShippementToolStripMenuItem
             // 

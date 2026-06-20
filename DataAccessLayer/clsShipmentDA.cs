@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO_Layer;
 
 namespace DataAccessLayer
 {
@@ -139,6 +140,60 @@ namespace DataAccessLayer
             }
             return DicShippementStatus;
         }
+
+        public static ShipmentDTO FindShipmentByID(int ShipmentID)
+        {
+            using (SqlConnection conx = new SqlConnection(clsConnection.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SP_FindShipmentByID", conx))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ShipmentID", ShipmentID);
+
+                    conx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Handle nullable fields
+                            var TrackingNumberOrdinal = reader.GetOrdinal("tracking_number");
+                            string TrackingNumber = reader.IsDBNull(TrackingNumberOrdinal) ? "" : reader.GetString(TrackingNumberOrdinal);
+
+                            var TrackingURLOrdinal = reader.GetOrdinal("tracking_url");
+                            string TrackingURL = reader.IsDBNull(TrackingURLOrdinal) ? "" : reader.GetString(TrackingURLOrdinal);
+
+                            var EstimatedDeliveryDateOrdinal = reader.GetOrdinal("estimated_delivery_date");
+                            DateTime? EstimatedDeliveryDate = reader.IsDBNull(EstimatedDeliveryDateOrdinal) ? (DateTime?)null : reader.GetDateTime(EstimatedDeliveryDateOrdinal);
+
+                            var ActualDeliveryDateOrdinal = reader.GetOrdinal("actual_delivery_date");
+                            DateTime? ActualDeliveryDate = reader.IsDBNull(ActualDeliveryDateOrdinal) ? (DateTime?)null : reader.GetDateTime(ActualDeliveryDateOrdinal);
+
+                            var ShippingNotesOrdinal = reader.GetOrdinal("shipping_notes");
+                            string ShippingNotes = reader.IsDBNull(ShippingNotesOrdinal) ? "" : reader.GetString(ShippingNotesOrdinal);
+
+                            var ShippingUpdatesOrdinal = reader.GetOrdinal("shipping_updates");
+                            string ShippingUpdates = reader.IsDBNull(ShippingUpdatesOrdinal) ? "" : reader.GetString(ShippingUpdatesOrdinal);
+
+                            return new ShipmentDTO(
+                                reader.GetInt32(reader.GetOrdinal("Shippment_ID")),
+                                reader.GetString(reader.GetOrdinal("Shipping_Carrier")),
+                                reader.GetString(reader.GetOrdinal("carrier_service_level")),
+                                TrackingNumber,
+                                TrackingURL,
+                                EstimatedDeliveryDate,
+                                ActualDeliveryDate,
+                                ShippingNotes,
+                                ShippingUpdates,
+                                reader.GetDecimal(reader.GetOrdinal("shipping_cost")),
+                                reader.GetInt32(reader.GetOrdinal("ShipmentStatusID"))
+                            );
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
 
         public static bool UpdateShipment(int shipmentID, string shipping_Carrier, string carrier_service_level, string tracking_number,
             string tracking_url, DateTime? estimated_delivery_date, DateTime? actual_delivery_date,

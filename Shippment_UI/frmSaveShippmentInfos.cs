@@ -23,6 +23,7 @@ namespace OnlineStoreProject.Shippment_UI
             InitializeComponent();
             _ShipmentID = ShipmentID;
             _Mode = enShipments.Update;
+            // Add find shippment by ID here 
         }
         enum enShipments { 
             Add , Update
@@ -74,7 +75,7 @@ namespace OnlineStoreProject.Shippment_UI
             Save(e);
             
         }
-
+       
         private void frmSaveShippmentInfos_Load(object sender, EventArgs e)
         {
 

@@ -110,7 +110,7 @@ namespace OnlineStoreProject
 
         private void AddOrder_Click(object sender, EventArgs e)
         {
-            frmSaveOrderForCustomer frm = new frmSaveOrderForCustomer();
+            frmSaveOrderForCustomer frm = new frmSaveOrderForCustomer((int)dgvTable.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
     }

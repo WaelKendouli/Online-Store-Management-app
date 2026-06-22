@@ -112,6 +112,7 @@
             this.btnOrderProduct.TabIndex = 6;
             this.btnOrderProduct.Text = "Order this product";
             this.btnOrderProduct.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnOrderProduct.Click += new System.EventHandler(this.btnOrderProduct_Click);
             // 
             // btnPlus
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LogicLayer;
 using LogicLayer.Events;
 namespace OnlineStoreProject.Orders_UI
 {
@@ -20,12 +21,14 @@ namespace OnlineStoreProject.Orders_UI
         int _CustomerID = 0;
         decimal _Price = 0;
         int _MaximumQuantity = 0;
-        int ProductID = -1;
-        private void _UpdateAmountPerProduct(decimal Price , int OrderQuantity)
+        decimal _OrderAmount = 0;
+        int _ProductID = -1;
+        clsOrder _Order = new clsOrder();
+        private void _UpdateAmountPerProduct(decimal Price, int OrderQuantity)
         {
-            double Percentage = (Convert.ToDouble(Price) * 0.2) ;
-            decimal OrderAmount = (Price + Convert.ToDecimal(Percentage)) * OrderQuantity;
-            txtAmount.Text = Convert.ToString(OrderAmount);        
+            double Percentage = (Convert.ToDouble(Price) * 0.2);
+            _OrderAmount = (Price + Convert.ToDecimal(Percentage)) * OrderQuantity;
+            txtAmount.Text = Convert.ToString(_OrderAmount);
         }
 
         private void frmSaveOrderForCustomer_Load(object sender, EventArgs e)
@@ -43,13 +46,14 @@ namespace OnlineStoreProject.Orders_UI
         private void ctrlSearchProduct1_OnProductSelected(object sender, ProductEventArgs e)
         {
             _Price = e.Price;
-            _UpdateAmountPerProduct(_Price , Convert.ToInt16(numQuantity.Value));
+            _ProductID = e.ProductID;
+            _UpdateAmountPerProduct(_Price, Convert.ToInt16(numQuantity.Value));
             _UpdateMaximumQuantity(e.Quantity);
         }
 
         private void uiLabel3_Click(object sender, EventArgs e)
         {
-          
+
         }
         private void _HandleIncreasingQuantityValue()
         {
@@ -82,10 +86,29 @@ namespace OnlineStoreProject.Orders_UI
 
         }
 
+        private void Order()
+        {
+             _Order = new clsOrder(DateTime.Now, DateTime.Now.TimeOfDay,
+               Convert.ToInt32(numQuantity.Value), _OrderAmount, _CustomerID, _ProductID, 1);
+            if (_Order.Insert())
+            {
+                MessageBox.Show($"Order was placed successfully on {_Order.OrderDate}","",MessageBoxButtons.OK , MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show($"Placing Order failed successfully on {_Order.OrderDate}", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
         private void numQuantity_ValueChanged(object sender, EventArgs e)
         {
             _UpdateAmountPerProduct(_Price, Convert.ToInt16(numQuantity.Value));
             
+        }
+
+        private void btnOrderProduct_Click(object sender, EventArgs e)
+        {
+            Order();
         }
     }
 }

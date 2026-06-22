@@ -27,7 +27,7 @@ namespace OnlineStoreProject.Orders_UI
 
         private void frmSaveOrderForCustomer_Load(object sender, EventArgs e)
         {
-            txtAmount.Text = "????";
+            txtAmount.Text = "0";
             numQuantity.Maximum = 1000;
             ctrlSearchProduct1.FillListProductsFromDB_ForLoad();
         }
@@ -82,8 +82,7 @@ namespace OnlineStoreProject.Orders_UI
         private void numQuantity_ValueChanged(object sender, EventArgs e)
         {
             _UpdateAmountPerProduct(_Price, Convert.ToInt16(numQuantity.Value));
-            _HandlingDecreasingQuantityValue();
-            _HandleIncreasingQuantityValue();
+            
         }
     }
 }

@@ -92,6 +92,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="clsConnection.cs" />
     <Compile Include="clsCustomersDA.cs" />
+    <Compile Include="clsOrdersDA.cs" />
     <Compile Include="clsProductsDA.cs" />
     <Compile Include="clsShipmentDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

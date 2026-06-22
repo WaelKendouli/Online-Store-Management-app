@@ -18,6 +18,7 @@ namespace OnlineStoreProject.Orders_UI
         }
         decimal _Price = 0;
         int _MaximumQuantity = 0;
+        int ProductID = -1;
         private void _UpdateAmountPerProduct(decimal Price , int OrderQuantity)
         {
             double Percentage = (Convert.ToDouble(Price) * 0.2) ;

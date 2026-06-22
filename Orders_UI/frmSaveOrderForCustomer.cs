@@ -12,10 +12,12 @@ namespace OnlineStoreProject.Orders_UI
 {
     public partial class frmSaveOrderForCustomer : Form
     {
-        public frmSaveOrderForCustomer()
+        public frmSaveOrderForCustomer(int CustomerID)
         {
             InitializeComponent();
+            _CustomerID = CustomerID;
         }
+        int _CustomerID = 0;
         decimal _Price = 0;
         int _MaximumQuantity = 0;
         int ProductID = -1;

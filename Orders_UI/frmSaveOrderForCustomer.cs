@@ -48,8 +48,7 @@ namespace OnlineStoreProject.Orders_UI
         {
           
         }
-
-        private void btnPlus_Click(object sender, EventArgs e)
+        private void _HandleIncreasingQuantityValue()
         {
             if (numQuantity.Value > _MaximumQuantity)
             {
@@ -61,19 +60,30 @@ namespace OnlineStoreProject.Orders_UI
             }
         }
 
-        private void btnMinus_Click(object sender, EventArgs e)
+        private void _HandlingDecreasingQuantityValue()
         {
             if (numQuantity.Value == 0)
             {
                 return;
             }
             numQuantity.Value--;
+        }
+        private void btnPlus_Click(object sender, EventArgs e)
+        {
+            _HandleIncreasingQuantityValue();
+        }
+
+        private void btnMinus_Click(object sender, EventArgs e)
+        {
+            _HandlingDecreasingQuantityValue();
 
         }
 
         private void numQuantity_ValueChanged(object sender, EventArgs e)
         {
             _UpdateAmountPerProduct(_Price, Convert.ToInt16(numQuantity.Value));
+            _HandlingDecreasingQuantityValue();
+            _HandleIncreasingQuantityValue();
         }
     }
 }

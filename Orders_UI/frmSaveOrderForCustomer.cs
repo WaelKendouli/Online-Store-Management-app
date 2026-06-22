@@ -16,11 +16,11 @@ namespace OnlineStoreProject.Orders_UI
         {
             InitializeComponent();
         }
-
-        private void _UpdateAmountPerProduct(decimal Price)
+        decimal _Price = 0;
+        private void _UpdateAmountPerProduct(decimal Price , int OrderQuantity)
         {
-            double Percentage = Convert.ToDouble(Price) * 0.4;
-            decimal OrderAmount = Price + Convert.ToDecimal(Percentage);
+            double Percentage = (Convert.ToDouble(Price) * 0.4) ;
+            decimal OrderAmount = Price + Convert.ToDecimal(Percentage) * OrderQuantity;
             txtAmount.Text = Convert.ToString(OrderAmount);        
         }
 
@@ -31,7 +31,8 @@ namespace OnlineStoreProject.Orders_UI
 
         private void ctrlSearchProduct1_OnProductSelected(object sender, ProductEventArgs e)
         {
-            _UpdateAmountPerProduct(e.Price);
+            _Price = e.Price;
+            _UpdateAmountPerProduct(_Price , Convert.ToInt16(numQuantity.Value));
         }
 
         private void uiLabel3_Click(object sender, EventArgs e)
@@ -52,6 +53,11 @@ namespace OnlineStoreProject.Orders_UI
             }
             numQuantity.Value--;
 
+        }
+
+        private void numQuantity_ValueChanged(object sender, EventArgs e)
+        {
+            _UpdateAmountPerProduct(_Price, Convert.ToInt16(numQuantity.Value));
         }
     }
 }

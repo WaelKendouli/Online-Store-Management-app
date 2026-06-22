@@ -57,6 +57,7 @@
             this.numQuantity.Name = "numQuantity";
             this.numQuantity.Size = new System.Drawing.Size(345, 34);
             this.numQuantity.TabIndex = 1;
+            this.numQuantity.ValueChanged += new System.EventHandler(this.numQuantity_ValueChanged);
             // 
             // txtAmount
             // 

@@ -27,13 +27,19 @@ namespace OnlineStoreProject.Orders_UI
         private void frmSaveOrderForCustomer_Load(object sender, EventArgs e)
         {
             txtAmount.Text = "????";
+            numQuantity.Maximum = 1000;
             ctrlSearchProduct1.FillListProductsFromDB_ForLoad();
         }
 
+        private void _UpdateMaximumQuantity(int ProductQuantity)
+        {
+            numQuantity.Maximum = ProductQuantity;
+        }
         private void ctrlSearchProduct1_OnProductSelected(object sender, ProductEventArgs e)
         {
             _Price = e.Price;
             _UpdateAmountPerProduct(_Price , Convert.ToInt16(numQuantity.Value));
+            _UpdateMaximumQuantity(e.Quantity);
         }
 
         private void uiLabel3_Click(object sender, EventArgs e)

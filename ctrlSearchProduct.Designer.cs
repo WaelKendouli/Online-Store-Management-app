@@ -80,7 +80,7 @@
             this.cbCategory.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
             this.cbCategory.Radius = 43;
             this.cbCategory.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cbCategory.Size = new System.Drawing.Size(242, 43);
+            this.cbCategory.Size = new System.Drawing.Size(349, 43);
             this.cbCategory.SymbolSize = 24;
             this.cbCategory.TabIndex = 4;
             this.cbCategory.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;

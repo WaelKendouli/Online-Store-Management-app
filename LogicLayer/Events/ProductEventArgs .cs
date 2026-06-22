@@ -7,7 +7,7 @@ namespace LogicLayer.Events
 {
     public class ProductEventArgs : EventArgs
     {
-        public int ID { get; }
+        public int ProductID { get; }
         public string Name { get;  }
         public string Description { get;  }
         public decimal Price { get; }
@@ -28,7 +28,7 @@ namespace LogicLayer.Events
 
         public ProductEventArgs(int Id,string name, string description, decimal price, int quantity, int CategoryID, List<string> LiPhotosPaths)
         {
-            ID = Id;
+            ProductID = Id;
             Name = name;
             Description = description;
             Price = price;

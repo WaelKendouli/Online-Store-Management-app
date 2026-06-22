@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,20 @@ namespace LogicLayer
         public clsOrder()
         {
         }
-
+        public clsOrder( DateTime orderDate, TimeSpan orderTime,
+                    int quantity, decimal amount, int customerId,
+                    int productId, int orderStatusId)
+        {
+            OrderDate = orderDate;
+            OrderTime = orderTime;
+            Quantity = quantity;
+            Amount = amount;
+            CustomerId = customerId;
+            ProductId = productId;
+            OrderStatusId = orderStatusId;
+        }
         // Parameterized constructor
-        public clsOrder(int orderId, DateTime orderDate, TimeSpan orderTime,
+        private clsOrder(int orderId, DateTime orderDate, TimeSpan orderTime,
                      int quantity, decimal amount, int customerId,
                      int productId, int orderStatusId)
         {
@@ -36,8 +48,13 @@ namespace LogicLayer
             ProductId = productId;
             OrderStatusId = orderStatusId;
         }
+        public bool Insert()
+        {
+            this.OrderId = clsOrdersDA.InsertOrder(this.OrderDate, this.OrderTime, this.Quantity, this.Amount, this.CustomerId, this.ProductId, this.OrderStatusId);
 
-        // Override ToString() for easy display
+            return this.OrderId > 0;
+
+        }
         public override string ToString()
         {
             return $"Order ID: {OrderId}, Date: {OrderDate.ToShortDateString()}, " +

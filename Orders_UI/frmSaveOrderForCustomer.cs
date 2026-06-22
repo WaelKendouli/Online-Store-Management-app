@@ -27,6 +27,7 @@ namespace OnlineStoreProject.Orders_UI
         private void frmSaveOrderForCustomer_Load(object sender, EventArgs e)
         {
             txtAmount.Text = "????";
+            ctrlSearchProduct1.FillListProductsFromDB_ForLoad();
         }
 
         private void ctrlSearchProduct1_OnProductSelected(object sender, ProductEventArgs e)
@@ -37,7 +38,7 @@ namespace OnlineStoreProject.Orders_UI
 
         private void uiLabel3_Click(object sender, EventArgs e)
         {
-
+          
         }
 
         private void btnPlus_Click(object sender, EventArgs e)

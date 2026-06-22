@@ -267,6 +267,12 @@
     <Compile Include="frmSearchProduct.Designer.cs">
       <DependentUpon>frmSearchProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Orders_UI\frmSaveOrderForCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders_UI\frmSaveOrderForCustomer.Designer.cs">
+      <DependentUpon>frmSaveOrderForCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Products_UI\frmProductsManagemts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearchProduct.resx">
       <DependentUpon>frmSearchProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders_UI\frmSaveOrderForCustomer.resx">
+      <DependentUpon>frmSaveOrderForCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products_UI\frmProductsManagemts.resx">
       <DependentUpon>frmProductsManagemts.cs</DependentUpon>

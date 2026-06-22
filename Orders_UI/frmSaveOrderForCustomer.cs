@@ -19,7 +19,7 @@ namespace OnlineStoreProject.Orders_UI
         decimal _Price = 0;
         private void _UpdateAmountPerProduct(decimal Price , int OrderQuantity)
         {
-            double Percentage = (Convert.ToDouble(Price) * 0.4) ;
+            double Percentage = (Convert.ToDouble(Price) * 0.2) ;
             decimal OrderAmount = (Price + Convert.ToDecimal(Percentage)) * OrderQuantity;
             txtAmount.Text = Convert.ToString(OrderAmount);        
         }

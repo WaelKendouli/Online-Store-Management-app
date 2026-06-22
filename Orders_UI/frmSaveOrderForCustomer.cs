@@ -17,6 +17,7 @@ namespace OnlineStoreProject.Orders_UI
             InitializeComponent();
         }
         decimal _Price = 0;
+        int _MaximumQuantity = 0;
         private void _UpdateAmountPerProduct(decimal Price , int OrderQuantity)
         {
             double Percentage = (Convert.ToDouble(Price) * 0.2) ;
@@ -34,6 +35,7 @@ namespace OnlineStoreProject.Orders_UI
         private void _UpdateMaximumQuantity(int ProductQuantity)
         {
             numQuantity.Maximum = ProductQuantity;
+            _MaximumQuantity = ProductQuantity;
         }
         private void ctrlSearchProduct1_OnProductSelected(object sender, ProductEventArgs e)
         {
@@ -49,7 +51,14 @@ namespace OnlineStoreProject.Orders_UI
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
-            numQuantity.Value++;
+            if (numQuantity.Value > _MaximumQuantity)
+            {
+                numQuantity.Value = _MaximumQuantity;
+            }
+            else
+            {
+                numQuantity.Value++;
+            }
         }
 
         private void btnMinus_Click(object sender, EventArgs e)

@@ -84,5 +84,23 @@ namespace LogicLayer
                    $"Customer ID: {CustomerId}, Product ID: {ProductId}, " +
                    $"Status ID: {OrderStatusId}";
         }
+        private  bool UpdateOrder()
+        {
+            return clsOrdersDA.UpdateOrder( this.OrderId, this.OrderDate, this.OrderTime, this.Quantity, this.Amount, this.CustomerId, this.ProductId, this.OrderStatusId);        
+        }
+        public bool Save()
+        {
+            switch (_Mode)
+            {
+                case  enMode.eAdd :
+                    _Mode = enMode.eUpdate;
+                    return Insert();
+                case enMode.eUpdate:
+                    return UpdateOrder();  
+            }
+            return false;
+        }
+
+
     }
 }

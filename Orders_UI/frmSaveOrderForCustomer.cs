@@ -107,14 +107,15 @@ namespace OnlineStoreProject.Orders_UI
                     _Order = new clsOrder(DateTime.Now, DateTime.Now.TimeOfDay,
                Convert.ToInt32(numQuantity.Value), _OrderAmount, _CustomerID, _ProductID, 1);
                     Operation = "Placing";
+                    _Mode = enMode.eUpdate;
                     break;
                 case enMode.eUpdate:
                     Operation = "Updating";
-                    //Add update function here 
+                    _Order = clsOrder.FindOrderByID(_OrderID);
                     break;
             }
 
-            if (_Order.Insert())
+            if (_Order.Save())
             {
                 MessageBox.Show($"{Operation} was done successfully on {_Order.OrderDate}","",MessageBoxButtons.OK , MessageBoxIcon.Information);
             }

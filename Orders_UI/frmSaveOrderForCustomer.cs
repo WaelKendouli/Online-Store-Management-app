@@ -85,9 +85,9 @@ namespace OnlineStoreProject.Orders_UI
         }
         private void _HandleIncreasingQuantityValue()
         {
-            if (numQuantity.Value > _MaximumQuantity)
+            if (numQuantity.Value == _MaximumQuantity)
             {
-                numQuantity.Value = _MaximumQuantity;
+                numQuantity.Value = 0;
             }
             else
             {

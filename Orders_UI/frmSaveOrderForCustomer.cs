@@ -28,6 +28,7 @@ namespace OnlineStoreProject.Orders_UI
             _CustomerID = CustomerID;
             _OrderID = OrderID;
             _Mode = enMode.eUpdate;
+            _Order = clsOrder.FindOrderByID(_OrderID);
         }
         int _OrderID = 0;
         int _CustomerID = 0;
@@ -42,12 +43,27 @@ namespace OnlineStoreProject.Orders_UI
             _OrderAmount = (Price + Convert.ToDecimal(Percentage)) * OrderQuantity;
             txtAmount.Text = Convert.ToString(_OrderAmount);
         }
-
-        private void frmSaveOrderForCustomer_Load(object sender, EventArgs e)
+        private void InitialLoad()
         {
             txtAmount.Text = "0";
             numQuantity.Maximum = 1000;
             ctrlSearchProduct1.FillListProductsFromDB_ForLoad();
+            switch (_Mode)
+            {
+                case enMode.eUpdate:
+                    if (_Order == null)
+                    {
+                        throw new Exception("Order object shouldn't be null");
+                    }
+                    ctrlSearchProduct1.FillUserControlBasedOnProductID(_Order.ProductId);
+                    break;
+            }
+        }
+
+
+        private void frmSaveOrderForCustomer_Load(object sender, EventArgs e)
+        {
+            InitialLoad();
         }
 
         private void _UpdateMaximumQuantity(int ProductQuantity)
@@ -111,7 +127,10 @@ namespace OnlineStoreProject.Orders_UI
                     break;
                 case enMode.eUpdate:
                     Operation = "Updating";
-                    _Order = clsOrder.FindOrderByID(_OrderID);
+                    if (_Order == null)
+                    {
+                        throw new Exception("Order object shouldn't be null");
+                    }
                     break;
             }
 

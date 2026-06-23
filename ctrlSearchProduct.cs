@@ -58,6 +58,23 @@ namespace OnlineStoreProject
             }
         }
 
+        private void _FillProductComboBox(string TargetedProductName)
+        {
+            cbItems.Clear();
+            if (_ListOfProductNames.Count > 0)
+            {
+                foreach (string Product in _ListOfProductNames)
+                {
+                    cbItems.Items.Add(Product);
+                    if (Product == TargetedProductName)
+                    {
+                        cbItems.SelectedItem = TargetedProductName;
+                    }
+                }
+               
+            }
+        }
+
         private async void _GetProductListPerCategory()
         {
             if (dicCategories.Count > 0)
@@ -68,6 +85,36 @@ namespace OnlineStoreProject
                 _FillProductComboBox();
             }
         }
+        /// <summary>
+        /// Overloaded function , Used After finding a product by ID
+        /// </summary>
+        /// <param name="CategoryID"></param>
+        /// <exception cref="Exception"></exception>
+        private async void _GetProductListPerCategory(int CategoryID , string ProductName)
+        {
+            if (CategoryID < 0)
+            {
+                throw new Exception("Category ID was not valid");
+            }
+            string CategoryName = string.Empty;
+            foreach (var item in dicCategories)
+            {
+                if (item.Value == CategoryID)
+                {
+                    CategoryName = item.Key;
+                }
+            }
+            cbCategory.SelectedItem = CategoryName;
+            if (dicCategories.Count > 0)
+            {
+                cbItems.SelectedIndex = 0;
+                _ListOfProductNames = await clsProduct.GetListOfProductsName(CategoryID);
+                cbItems.Enabled = _ListOfProductNames != null;
+                _FillProductComboBox( ProductName);
+
+            }
+        }
+
         public async void FillListProductsFromDB_ForLoad()
         {
             dicCategories = await clsProduct.GetListOfCategoriesAsync();
@@ -83,6 +130,28 @@ namespace OnlineStoreProject
         private void ctrlSearchProduct_Load(object sender, EventArgs e)
         {
             cbItems.Enabled = false;
+        }
+
+        /// <summary>
+        /// overloaded function used after finding an existing product By ID
+        /// </summary>
+        
+
+        public async void FillUserControlBasedOnProductID(int ProductID)
+        {
+            Current = await clsProduct.FindProductByID(ProductID);
+            if (Current != null)
+            {
+                ctrlProductCardInfos1.LoadProductCardInfo(Current);
+                _GetProductListPerCategory(Current.CategoryID, Current.Name);
+                OnProductSelect(new ProductEventArgs(Current.ProductID, Current.Name, Current.Description,
+                    Current.Price, Current.Quantity,
+                    Current.CategoryID, Current.ListOfImagesPaths));
+            }
+            else
+            {
+                MessageBox.Show($"{cbItems.SelectedText.ToString()} Not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async void _Search()

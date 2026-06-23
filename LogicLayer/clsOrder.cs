@@ -9,6 +9,9 @@ namespace LogicLayer
 {
     public class clsOrder
     {
+        enum enMode { eAdd , eUpdate }
+
+        enMode _Mode = enMode.eAdd;
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
         public TimeSpan OrderTime { get; set; }
@@ -21,11 +24,13 @@ namespace LogicLayer
         // Default constructor
         public clsOrder()
         {
+            _Mode = enMode.eAdd;
         }
         public clsOrder( DateTime orderDate, TimeSpan orderTime,
                     int quantity, decimal amount, int customerId,
                     int productId, int orderStatusId)
         {
+            _Mode = enMode.eAdd;
             OrderDate = orderDate;
             OrderTime = orderTime;
             Quantity = quantity;
@@ -39,6 +44,7 @@ namespace LogicLayer
                      int quantity, decimal amount, int customerId,
                      int productId, int orderStatusId)
         {
+            _Mode = enMode.eUpdate;
             OrderId = orderId;
             OrderDate = orderDate;
             OrderTime = orderTime;

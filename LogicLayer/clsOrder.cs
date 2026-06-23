@@ -48,7 +48,7 @@ namespace LogicLayer
             ProductId = productId;
             OrderStatusId = orderStatusId;
         }
-        public bool Insert()
+        private bool Insert()
         {
             this.OrderId = clsOrdersDA.InsertOrder(this.OrderDate, this.OrderTime, this.Quantity, this.Amount, this.CustomerId, this.ProductId, this.OrderStatusId);
 

@@ -100,15 +100,27 @@ namespace OnlineStoreProject.Orders_UI
 
         private void Order()
         {
-             _Order = new clsOrder(DateTime.Now, DateTime.Now.TimeOfDay,
+            string Operation = string.Empty;
+            switch (_Mode)
+            {
+                case enMode.eAdd:
+                    _Order = new clsOrder(DateTime.Now, DateTime.Now.TimeOfDay,
                Convert.ToInt32(numQuantity.Value), _OrderAmount, _CustomerID, _ProductID, 1);
+                    Operation = "Placing";
+                    break;
+                case enMode.eUpdate:
+                    Operation = "Updating";
+                    //Add update function here 
+                    break;
+            }
+
             if (_Order.Insert())
             {
-                MessageBox.Show($"Order was placed successfully on {_Order.OrderDate}","",MessageBoxButtons.OK , MessageBoxIcon.Information);
+                MessageBox.Show($"{Operation} was done successfully on {_Order.OrderDate}","",MessageBoxButtons.OK , MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show($"Placing Order failed successfully on {_Order.OrderDate}", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{Operation} failed", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

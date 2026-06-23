@@ -52,5 +52,43 @@ namespace DataAccessLayer
                 return (int)outputIdParam.Value;
             }
         }
+
+        public static bool UpdateOrder(int orderID, DateTime orderDate, TimeSpan orderTime, int quantity, decimal amount, int customerID, int productID, int orderStatusID)
+        {
+            using (var connection = new SqlConnection(clsConnection.ConnectionString))
+            using (var command = new SqlCommand("SP_UpdateOrder", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add Order ID parameter
+                command.Parameters.AddWithValue("@OrderID", orderID);
+
+                // Add OrderDate parameter
+                command.Parameters.AddWithValue("@OrderDate", orderDate);
+
+                // Add OrderTime parameter
+                command.Parameters.AddWithValue("@OrderTime", orderTime);
+
+                // Add Quantity parameter
+                command.Parameters.AddWithValue("@Quantity", quantity);
+
+                // Add Amount parameter
+                command.Parameters.AddWithValue("@Amount", amount);
+
+                // Add CustomerID parameter
+                command.Parameters.AddWithValue("@CustomerID", customerID);
+
+                // Add ProductID parameter
+                command.Parameters.AddWithValue("@ProductID", productID);
+
+                // Add OrderStatusID parameter
+                command.Parameters.AddWithValue("@OrderStatusID", orderStatusID);
+
+                connection.Open();
+              return  command.ExecuteNonQuery() > 0;
+                 
+            }
+        }
+
     }
 }

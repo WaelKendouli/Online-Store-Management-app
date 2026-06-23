@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer;
+using DTO_Layer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,21 @@ namespace LogicLayer
             return this.OrderId > 0;
 
         }
+
+        public static clsOrder FindOrderByID(int orderID)
+        {
+            OrderDTO DTO = clsOrdersDA.FindAnOrderByID(orderID);
+
+            if (DTO == null)
+            {
+                return null;
+            }
+
+            return new clsOrder(DTO.OrderId, DTO.OrderDate, DTO.OrderTime,
+                                DTO.Quantity, DTO.Amount, DTO.CustomerId,
+                                DTO.ProductId, DTO.OrderStatusId);
+        }
+
         public override string ToString()
         {
             return $"Order ID: {OrderId}, Date: {OrderDate.ToShortDateString()}, " +

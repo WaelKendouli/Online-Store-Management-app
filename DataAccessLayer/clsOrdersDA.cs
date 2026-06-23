@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO_Layer;
 
 namespace DataAccessLayer
 {
@@ -52,6 +53,38 @@ namespace DataAccessLayer
                 return (int)outputIdParam.Value;
             }
         }
+
+        public static OrderDTO FindAnOrderByID(int OrderID)
+        {
+            using (SqlConnection conx = new SqlConnection(clsConnection.ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("SP_FindAnOrderByID", conx))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@OrderID", OrderID);
+
+                    conx.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new OrderDTO(
+                                reader.GetInt32(reader.GetOrdinal("order_id")),
+                                reader.GetDateTime(reader.GetOrdinal("OrderDate")),
+                                reader.GetTimeSpan(reader.GetOrdinal("OrderTime")),
+                                reader.GetInt32(reader.GetOrdinal("Quantity")),
+                                reader.GetDecimal(reader.GetOrdinal("Amount")),
+                                reader.GetInt32(reader.GetOrdinal("CustomerID")),
+                                reader.GetInt32(reader.GetOrdinal("ProductID")),
+                                reader.GetInt32(reader.GetOrdinal("OrderStatus_ID"))
+                            );
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
 
         public static bool UpdateOrder(int orderID, DateTime orderDate, TimeSpan orderTime, int quantity, decimal amount, int customerID, int productID, int orderStatusID)
         {

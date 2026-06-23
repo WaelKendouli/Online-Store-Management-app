@@ -93,7 +93,7 @@ namespace OnlineStoreProject
                 if (Current!=null)
                 {
                     ctrlProductCardInfos1.LoadProductCardInfo(Current);
-                    OnProductSelect(new ProductEventArgs(Current.Name, Current.Description,
+                    OnProductSelect(new ProductEventArgs(Current.ProductID ,Current.Name, Current.Description,
                         Current.Price, Current.Quantity,
                         Current.CategoryID, Current.ListOfImagesPaths));
                 }

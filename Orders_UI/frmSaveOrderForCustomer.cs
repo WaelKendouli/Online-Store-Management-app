@@ -13,11 +13,23 @@ namespace OnlineStoreProject.Orders_UI
 {
     public partial class frmSaveOrderForCustomer : Form
     {
+        enum enMode { eAdd , eUpdate }
+        enMode _Mode = enMode.eAdd;
         public frmSaveOrderForCustomer(int CustomerID)
         {
             InitializeComponent();
             _CustomerID = CustomerID;
+            _Mode = enMode.eAdd;
         }
+
+        public frmSaveOrderForCustomer(int CustomerID , int OrderID)
+        {
+            InitializeComponent();
+            _CustomerID = CustomerID;
+            _OrderID = OrderID;
+            _Mode = enMode.eUpdate;
+        }
+        int _OrderID = 0;
         int _CustomerID = 0;
         decimal _Price = 0;
         int _MaximumQuantity = 0;

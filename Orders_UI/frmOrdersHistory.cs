@@ -48,5 +48,10 @@ namespace OnlineStoreProject.Orders_UI
             frm.ShowDialog();
             LoadData();
         }
+
+        private void txtInput_TextChanged(object sender, EventArgs e)
+        {
+            clsSunnyUIDataGridViewSettings.HandleTextBoxChangingEvent(txtInput, cbItems, _dtOrdersHistory);
+        }
     }
 }

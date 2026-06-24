@@ -109,6 +109,7 @@
             this.cbItems.MinimumSize = new System.Drawing.Size(63, 0);
             this.cbItems.Name = "cbItems";
             this.cbItems.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.cbItems.ReadOnly = true;
             this.cbItems.Size = new System.Drawing.Size(396, 46);
             this.cbItems.SymbolSize = 24;
             this.cbItems.TabIndex = 1;
@@ -130,6 +131,7 @@
             this.txtInput.TabIndex = 2;
             this.txtInput.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtInput.Watermark = "";
+            this.txtInput.TextChanged += new System.EventHandler(this.txtInput_TextChanged);
             // 
             // uiLabel1
             // 

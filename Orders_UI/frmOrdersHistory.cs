@@ -39,6 +39,7 @@ namespace OnlineStoreProject.Orders_UI
             frmSaveOrderForCustomer frm = new frmSaveOrderForCustomer((int)dgvOrdersHistory.CurrentRow.Cells[1].Value
                 , (int)dgvOrdersHistory.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+            LoadData();
         }
     }
 }

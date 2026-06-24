@@ -64,6 +64,23 @@ namespace OnlineStoreProject.Orders_UI
             }
         }
 
+        private void _EditOrderAttributesForUpdating(int ProductID , decimal Amount , int Quantity )
+        {
+            if (_Mode==enMode.eUpdate)
+            {
+                if (_Order==null || _Order.OrderId == -1)
+                {
+                    throw new Exception("Order Object shouldn't be empty");
+                }
+
+                _Order.ProductId = ProductID;
+                _Order.FillOrderProductObject();
+                _Order.OrderDate = DateTime.Now;
+                _Order.Quantity = Quantity;
+                _Order.Amount = Amount;
+                _Order.OrderTime = DateTime.Now.TimeOfDay;
+            }
+        }
 
         private void frmSaveOrderForCustomer_Load(object sender, EventArgs e)
         {
@@ -131,10 +148,12 @@ namespace OnlineStoreProject.Orders_UI
                     break;
                 case enMode.eUpdate:
                     Operation = "Updating";
+                    
                     if (_Order == null)
                     {
                         throw new Exception("Order object shouldn't be null");
                     }
+                    _EditOrderAttributesForUpdating(_ProductID, _OrderAmount, Convert.ToInt32(numQuantity.Value));
                     break;
             }
 

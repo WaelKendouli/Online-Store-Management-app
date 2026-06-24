@@ -110,7 +110,7 @@ namespace LogicLayer
             return await clsOrdersDA.GetHistoryOfOrdersPerCustomerAsync(customerID);
         }
 
-        private async void FillOrderProductObject()
+        public async void FillOrderProductObject()
         {
             OrderProduct = await clsProduct.FindProductByID(this.ProductId);
         }

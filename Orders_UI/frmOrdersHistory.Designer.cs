@@ -29,63 +29,68 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvOrdersHistory = new Sunny.UI.UIDataGridView();
             this.cbItems = new Sunny.UI.UIComboBox();
             this.txtInput = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.cmsOptions = new Sunny.UI.UIContextMenuStrip(this.components);
             this.updateThisOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewOrderForThisCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.turnThisTableIntoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pDFFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jSONFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdersHistory)).BeginInit();
             this.cmsOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvOrdersHistory
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dgvOrdersHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dgvOrdersHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvOrdersHistory.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrdersHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdersHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdersHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvOrdersHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdersHistory.ContextMenuStrip = this.cmsOptions;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrdersHistory.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrdersHistory.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvOrdersHistory.EnableHeadersVisualStyles = false;
             this.dgvOrdersHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dgvOrdersHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dgvOrdersHistory.Location = new System.Drawing.Point(30, 169);
             this.dgvOrdersHistory.Name = "dgvOrdersHistory";
             this.dgvOrdersHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdersHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdersHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvOrdersHistory.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dgvOrdersHistory.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dgvOrdersHistory.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvOrdersHistory.RowTemplate.Height = 24;
             this.dgvOrdersHistory.SelectedIndex = -1;
             this.dgvOrdersHistory.Size = new System.Drawing.Size(1330, 570);
@@ -96,7 +101,7 @@
             // 
             this.cbItems.DataSource = null;
             this.cbItems.FillColor = System.Drawing.Color.White;
-            this.cbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbItems.Font = new System.Drawing.Font("Microsoft YaHei", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbItems.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.cbItems.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.cbItems.Location = new System.Drawing.Point(30, 115);
@@ -142,16 +147,53 @@
             this.cmsOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmsOptions.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateThisOrderToolStripMenuItem});
+            this.updateThisOrderToolStripMenuItem,
+            this.addNewOrderForThisCustomerToolStripMenuItem,
+            this.turnThisTableIntoToolStripMenuItem});
             this.cmsOptions.Name = "cmsOptions";
-            this.cmsOptions.Size = new System.Drawing.Size(238, 62);
+            this.cmsOptions.Size = new System.Drawing.Size(364, 94);
             // 
             // updateThisOrderToolStripMenuItem
             // 
             this.updateThisOrderToolStripMenuItem.Name = "updateThisOrderToolStripMenuItem";
-            this.updateThisOrderToolStripMenuItem.Size = new System.Drawing.Size(237, 30);
+            this.updateThisOrderToolStripMenuItem.Size = new System.Drawing.Size(363, 30);
             this.updateThisOrderToolStripMenuItem.Text = "Update this Order";
             this.updateThisOrderToolStripMenuItem.Click += new System.EventHandler(this.updateThisOrderToolStripMenuItem_Click);
+            // 
+            // addNewOrderForThisCustomerToolStripMenuItem
+            // 
+            this.addNewOrderForThisCustomerToolStripMenuItem.Name = "addNewOrderForThisCustomerToolStripMenuItem";
+            this.addNewOrderForThisCustomerToolStripMenuItem.Size = new System.Drawing.Size(363, 30);
+            this.addNewOrderForThisCustomerToolStripMenuItem.Text = "Add new Order for this customer";
+            this.addNewOrderForThisCustomerToolStripMenuItem.Click += new System.EventHandler(this.addNewOrderForThisCustomerToolStripMenuItem_Click);
+            // 
+            // turnThisTableIntoToolStripMenuItem
+            // 
+            this.turnThisTableIntoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pDFFileToolStripMenuItem,
+            this.xMLFileToolStripMenuItem,
+            this.jSONFileToolStripMenuItem});
+            this.turnThisTableIntoToolStripMenuItem.Name = "turnThisTableIntoToolStripMenuItem";
+            this.turnThisTableIntoToolStripMenuItem.Size = new System.Drawing.Size(363, 30);
+            this.turnThisTableIntoToolStripMenuItem.Text = "Turn this table into";
+            // 
+            // pDFFileToolStripMenuItem
+            // 
+            this.pDFFileToolStripMenuItem.Name = "pDFFileToolStripMenuItem";
+            this.pDFFileToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.pDFFileToolStripMenuItem.Text = "PDF file";
+            // 
+            // xMLFileToolStripMenuItem
+            // 
+            this.xMLFileToolStripMenuItem.Name = "xMLFileToolStripMenuItem";
+            this.xMLFileToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.xMLFileToolStripMenuItem.Text = "XML file";
+            // 
+            // jSONFileToolStripMenuItem
+            // 
+            this.jSONFileToolStripMenuItem.Name = "jSONFileToolStripMenuItem";
+            this.jSONFileToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.jSONFileToolStripMenuItem.Text = "JSON file";
             // 
             // frmOrdersHistory
             // 
@@ -182,5 +224,10 @@
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UIContextMenuStrip cmsOptions;
         private System.Windows.Forms.ToolStripMenuItem updateThisOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewOrderForThisCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem turnThisTableIntoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pDFFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xMLFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jSONFileToolStripMenuItem;
     }
 }

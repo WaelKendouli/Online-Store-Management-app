@@ -59,13 +59,7 @@ namespace OnlineStoreProject.Orders_UI
                     ctrlSearchProduct1.FillUserControlBasedOnProductID(_Order.ProductId);
                     numQuantity.Value = _Order.Quantity;
                     _UpdateMaximumQuantity(_Order.Quantity);
-                    //if (ctrlSearchProduct1.CurrentProduct == null)
-                    //{
-                    //    throw new Exception("Current Product object shouldn't be null");
-
-                    //}
-                    clsProduct Current = ctrlSearchProduct1.CurrentProduct;
-                    _UpdateAmountPerProduct( Current.Price, Convert.ToInt16(numQuantity.Value));
+                    _UpdateAmountPerProduct( _Order.OrderProduct.Price, Convert.ToInt16(numQuantity.Value));
                     break;
             }
         }

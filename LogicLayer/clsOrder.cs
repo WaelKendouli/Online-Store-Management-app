@@ -22,7 +22,7 @@ namespace LogicLayer
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
         public int OrderStatusId { get; set; }
-
+        public clsProduct OrderProduct  { get; set; } = new clsProduct();
         // Default constructor
         public clsOrder()
         {
@@ -40,6 +40,8 @@ namespace LogicLayer
             CustomerId = customerId;
             ProductId = productId;
             OrderStatusId = orderStatusId;
+            FillOrderProductObject();
+            
         }
         // Parameterized constructor
         private clsOrder(int orderId, DateTime orderDate, TimeSpan orderTime,
@@ -55,6 +57,7 @@ namespace LogicLayer
             CustomerId = customerId;
             ProductId = productId;
             OrderStatusId = orderStatusId;
+            FillOrderProductObject();
         }
         private bool Insert()
         {
@@ -107,6 +110,10 @@ namespace LogicLayer
             return await clsOrdersDA.GetHistoryOfOrdersPerCustomerAsync(customerID);
         }
 
+        private async void FillOrderProductObject()
+        {
+            OrderProduct = await clsProduct.FindProductByID(this.ProductId);
+        }
 
     }
 }

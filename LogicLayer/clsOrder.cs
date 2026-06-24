@@ -14,7 +14,7 @@ namespace LogicLayer
         enum enMode { eAdd , eUpdate }
 
         enMode _Mode = enMode.eAdd;
-        public int OrderId { get; set; }
+        public int OrderId { get; set; } = -1;
         public DateTime OrderDate { get; set; }
         public TimeSpan OrderTime { get; set; }
         public int Quantity { get; set; }

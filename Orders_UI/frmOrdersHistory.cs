@@ -33,5 +33,12 @@ namespace OnlineStoreProject.Orders_UI
         {
             LoadData();
         }
+
+        private void updateThisOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSaveOrderForCustomer frm = new frmSaveOrderForCustomer((int)dgvOrdersHistory.CurrentRow.Cells[1].Value
+                , (int)dgvOrdersHistory.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

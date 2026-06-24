@@ -27,7 +27,7 @@ namespace OnlineStoreProject.Orders_UI
             dgvOrdersHistory.DataSource = _dtOrdersHistory;
             _dtOrdersHistory = await clsOrder.GetHistoryOfOrdersPerCustomerAsync(_CustomerID);
             clsSunnyUIDataGridViewSettings.LoadData(_dtOrdersHistory, dgvOrdersHistory,
-                cbItems, new List<string> { "Amount" , "Quantity" , "OrderTime" }, 120);
+                cbItems, new List<string> { "Amount" , "Quantity" , "OrderTime" }, 140);
         }
         private void frmOrdersHistory_Load(object sender, EventArgs e)
         {

@@ -113,5 +113,11 @@ namespace OnlineStoreProject
             frmSaveOrderForCustomer frm = new frmSaveOrderForCustomer((int)dgvTable.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
+
+        private void ordersHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOrdersHistory frm = new frmOrdersHistory((int)dgvTable.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

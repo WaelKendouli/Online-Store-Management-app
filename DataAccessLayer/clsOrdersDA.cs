@@ -54,6 +54,32 @@ namespace DataAccessLayer
             }
         }
 
+        public static async Task<DataTable> GetHistoryOfOrdersPerCustomerAsync(int customerID)
+        {
+            DataTable dtOrderHistory = new DataTable();
+            using (SqlConnection conx = new SqlConnection(clsConnection.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand("SP_GetHistoryOfOrdersPerCustomer", conx))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                await conx.OpenAsync();
+                try
+                {
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        if (reader.HasRows)
+                        {
+                            dtOrderHistory.Load(reader);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle exception (log it, etc.)
+                }
+            }
+            return dtOrderHistory;
+        }
 
 
         public static OrderDTO FindAnOrderByID(int OrderID)

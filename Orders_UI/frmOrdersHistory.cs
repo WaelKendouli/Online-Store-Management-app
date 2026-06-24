@@ -53,5 +53,16 @@ namespace OnlineStoreProject.Orders_UI
         {
             clsSunnyUIDataGridViewSettings.HandleTextBoxChangingEvent(txtInput, cbItems, _dtOrdersHistory);
         }
+
+        private void pDFFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPDFConverter frm = new frmPDFConverter(_dtOrdersHistory , "Order history table");
+            frm.ShowDialog();
+        }
+
+        private void xMLFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

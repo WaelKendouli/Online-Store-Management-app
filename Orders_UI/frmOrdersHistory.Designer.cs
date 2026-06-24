@@ -152,7 +152,7 @@
             this.addNewOrderForThisCustomerToolStripMenuItem,
             this.turnThisTableIntoToolStripMenuItem});
             this.cmsOptions.Name = "cmsOptions";
-            this.cmsOptions.Size = new System.Drawing.Size(364, 94);
+            this.cmsOptions.Size = new System.Drawing.Size(364, 122);
             // 
             // updateThisOrderToolStripMenuItem
             // 
@@ -183,12 +183,14 @@
             this.pDFFileToolStripMenuItem.Name = "pDFFileToolStripMenuItem";
             this.pDFFileToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.pDFFileToolStripMenuItem.Text = "PDF file";
+            this.pDFFileToolStripMenuItem.Click += new System.EventHandler(this.pDFFileToolStripMenuItem_Click);
             // 
             // xMLFileToolStripMenuItem
             // 
             this.xMLFileToolStripMenuItem.Name = "xMLFileToolStripMenuItem";
             this.xMLFileToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.xMLFileToolStripMenuItem.Text = "XML file";
+            this.xMLFileToolStripMenuItem.Click += new System.EventHandler(this.xMLFileToolStripMenuItem_Click);
             // 
             // jSONFileToolStripMenuItem
             // 

@@ -197,6 +197,7 @@
             this.jSONFileToolStripMenuItem.Name = "jSONFileToolStripMenuItem";
             this.jSONFileToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
             this.jSONFileToolStripMenuItem.Text = "JSON file";
+            this.jSONFileToolStripMenuItem.Click += new System.EventHandler(this.jSONFileToolStripMenuItem_Click);
             // 
             // frmOrdersHistory
             // 

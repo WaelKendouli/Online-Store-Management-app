@@ -65,5 +65,11 @@ namespace OnlineStoreProject.Orders_UI
             frmConvertToXML frm = new frmConvertToXML(_dtOrdersHistory, "Order history table");
             frm.ShowDialog();
         }
+
+        private void jSONFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConvertToJSON frm = new frmConvertToJSON(_dtOrdersHistory, "Order history table");
+            frm.ShowDialog();
+        }
     }
 }

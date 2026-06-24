@@ -2,6 +2,7 @@
 using DTO_Layer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,11 @@ namespace LogicLayer
                     return UpdateOrder();  
             }
             return false;
+        }
+
+        public static async Task<DataTable> GetHistoryOfOrdersPerCustomerAsync(int customerID)
+        {
+            return await clsOrdersDA.GetHistoryOfOrdersPerCustomerAsync(customerID);
         }
 
 

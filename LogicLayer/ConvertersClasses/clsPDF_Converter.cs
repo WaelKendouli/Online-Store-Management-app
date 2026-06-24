@@ -125,9 +125,9 @@ namespace LogicLayer.ConvertersClasses
                     XRect rect = new XRect(x, y, columnWidths[col], rowHeight);
 
                     // Alternate row colors
-                    XBrush rowBrush = (row % 2 == 0) ? XBrushes.White : XBrushes.LightBlue;
+                    XBrush rowBrush =  XBrushes.White ;
                     gfx.DrawRectangle(rowBrush, rect);
-                    gfx.DrawRectangle(XPens.LightGray, rect);
+                    gfx.DrawRectangle(XPens.Black, rect);
 
                     // Format cell value based on data type
                     string cellValue = FormatCellValue(dataTable.Rows[row][col]);

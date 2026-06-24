@@ -32,7 +32,7 @@
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.txtAmount = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.uiLabel3 = new Sunny.UI.UILabel();
+            this.lbTitle = new Sunny.UI.UILabel();
             this.btnOrderProduct = new Sunny.UI.UIButton();
             this.btnPlus = new Sunny.UI.UIButton();
             this.btnMinus = new Sunny.UI.UIButton();
@@ -49,6 +49,7 @@
             this.ctrlSearchProduct1.Size = new System.Drawing.Size(812, 731);
             this.ctrlSearchProduct1.TabIndex = 0;
             this.ctrlSearchProduct1.OnProductSelected += new System.EventHandler<LogicLayer.Events.ProductEventArgs>(this.ctrlSearchProduct1_OnProductSelected);
+            this.ctrlSearchProduct1.Load += new System.EventHandler(this.ctrlSearchProduct1_Load);
             // 
             // numQuantity
             // 
@@ -86,16 +87,16 @@
             this.uiLabel1.TabIndex = 3;
             this.uiLabel1.Text = "Quantity";
             // 
-            // uiLabel3
+            // lbTitle
             // 
-            this.uiLabel3.Font = new System.Drawing.Font("Microsoft YaHei", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiLabel3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.uiLabel3.Location = new System.Drawing.Point(458, 9);
-            this.uiLabel3.Name = "uiLabel3";
-            this.uiLabel3.Size = new System.Drawing.Size(405, 56);
-            this.uiLabel3.TabIndex = 5;
-            this.uiLabel3.Text = "Order product";
-            this.uiLabel3.Click += new System.EventHandler(this.uiLabel3_Click);
+            this.lbTitle.Font = new System.Drawing.Font("Microsoft YaHei", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lbTitle.Location = new System.Drawing.Point(458, 9);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(405, 56);
+            this.lbTitle.TabIndex = 5;
+            this.lbTitle.Text = "Order product";
+            this.lbTitle.Click += new System.EventHandler(this.uiLabel3_Click);
             // 
             // btnOrderProduct
             // 
@@ -162,7 +163,7 @@
             this.Controls.Add(this.btnMinus);
             this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btnOrderProduct);
-            this.Controls.Add(this.uiLabel3);
+            this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.uiLabel1);
             this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.numQuantity);
@@ -183,7 +184,7 @@
         private System.Windows.Forms.NumericUpDown numQuantity;
         private Sunny.UI.UITextBox txtAmount;
         private Sunny.UI.UILabel uiLabel1;
-        private Sunny.UI.UILabel uiLabel3;
+        private Sunny.UI.UILabel lbTitle;
         private Sunny.UI.UIButton btnOrderProduct;
         private Sunny.UI.UIButton btnPlus;
         private Sunny.UI.UIButton btnMinus;

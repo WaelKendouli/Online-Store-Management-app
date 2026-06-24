@@ -55,10 +55,17 @@ namespace OnlineStoreProject.Orders_UI
                     {
                         throw new Exception("Order object shouldn't be null");
                     }
+                    lbTitle.Text = "Update this product";
                     ctrlSearchProduct1.FillUserControlBasedOnProductID(_Order.ProductId);
                     numQuantity.Value = _Order.Quantity;
                     _UpdateMaximumQuantity(_Order.Quantity);
+                    if (ctrlSearchProduct1.CurrentProduct == null)
+                    {
+                        throw new Exception("Current Product object shouldn't be null");
 
+                    }
+                    clsProduct Current = ctrlSearchProduct1.CurrentProduct;
+                    _UpdateAmountPerProduct( Current.Price, Convert.ToInt16(numQuantity.Value));
                     break;
             }
         }
@@ -156,6 +163,11 @@ namespace OnlineStoreProject.Orders_UI
         private void btnOrderProduct_Click(object sender, EventArgs e)
         {
             Order();
+        }
+
+        private void ctrlSearchProduct1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

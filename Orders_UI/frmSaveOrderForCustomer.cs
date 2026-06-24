@@ -56,6 +56,9 @@ namespace OnlineStoreProject.Orders_UI
                         throw new Exception("Order object shouldn't be null");
                     }
                     ctrlSearchProduct1.FillUserControlBasedOnProductID(_Order.ProductId);
+                    numQuantity.Value = _Order.Quantity;
+                    _UpdateMaximumQuantity(_Order.Quantity);
+
                     break;
             }
         }

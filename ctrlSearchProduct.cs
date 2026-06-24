@@ -19,7 +19,7 @@ namespace OnlineStoreProject
             InitializeComponent();
         }
 
-        clsProduct Current = null;
+       public clsProduct CurrentProduct  { get; set; } = null;
 
         public event EventHandler<ProductEventArgs> OnProductSelected;
 
@@ -139,14 +139,14 @@ namespace OnlineStoreProject
 
         public async void FillUserControlBasedOnProductID(int ProductID)
         {
-            Current = await clsProduct.FindProductByID(ProductID);
-            if (Current != null)
+            CurrentProduct = await clsProduct.FindProductByID(ProductID);
+            if (CurrentProduct != null)
             {
-                ctrlProductCardInfos1.LoadProductCardInfo(Current);
-                _GetProductListPerCategory(Current.CategoryID, Current.Name);
-                OnProductSelect(new ProductEventArgs(Current.ProductID, Current.Name, Current.Description,
-                    Current.Price, Current.Quantity,
-                    Current.CategoryID, Current.ListOfImagesPaths));
+                ctrlProductCardInfos1.LoadProductCardInfo(CurrentProduct);
+                _GetProductListPerCategory(CurrentProduct.CategoryID, CurrentProduct.Name);
+                OnProductSelect(new ProductEventArgs(CurrentProduct.ProductID, CurrentProduct.Name, CurrentProduct.Description,
+                    CurrentProduct.Price, CurrentProduct.Quantity,
+                    CurrentProduct.CategoryID, CurrentProduct.ListOfImagesPaths));
             }
             else
             {
@@ -158,13 +158,13 @@ namespace OnlineStoreProject
         {
             if (cbItems.Items.Count > 0 && cbItems.Enabled == true)
             {
-                Current = await clsProduct.FindProductByName(cbItems.SelectedItem.ToString());
-                if (Current!=null)
+                CurrentProduct = await clsProduct.FindProductByName(cbItems.SelectedItem.ToString());
+                if (CurrentProduct!=null)
                 {
-                    ctrlProductCardInfos1.LoadProductCardInfo(Current);
-                    OnProductSelect(new ProductEventArgs(Current.ProductID ,Current.Name, Current.Description,
-                        Current.Price, Current.Quantity,
-                        Current.CategoryID, Current.ListOfImagesPaths));
+                    ctrlProductCardInfos1.LoadProductCardInfo(CurrentProduct);
+                    OnProductSelect(new ProductEventArgs(CurrentProduct.ProductID ,CurrentProduct.Name, CurrentProduct.Description,
+                        CurrentProduct.Price, CurrentProduct.Quantity,
+                        CurrentProduct.CategoryID, CurrentProduct.ListOfImagesPaths));
                 }
                 else
                 {

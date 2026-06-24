@@ -62,7 +62,8 @@ namespace OnlineStoreProject.Orders_UI
 
         private void xMLFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            frmConvertToXML frm = new frmConvertToXML(_dtOrdersHistory, "Order history table");
+            frm.ShowDialog();
         }
     }
 }
